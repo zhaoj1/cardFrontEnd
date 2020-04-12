@@ -4,6 +4,8 @@ import Game from './Game'
 import EditDeck from './EditDeck'
 import './App.css'
 
+var deck
+
 export default class App extends React.Component{
   
   constructor(){
@@ -59,19 +61,30 @@ export default class App extends React.Component{
   }
 
   setCardToDeck = (card) => {
-    this.setState({
-      playerFullDeck: [...this.state.playerFullDeck, card]
-    })
+    this.state.playerFullDeck.length == 9 ?
+      alert('too many cards plz stop')
+      :
+      deck = [...this.state.playerFullDeck, card].sort(function (a,b){return (a.id - b.id)})
+      this.setState({
+        playerFullDeck: deck
+      })
+  }
+
+  removeCardFromDeck = (card) => {
+    deck = this.state.playerFullDeck
+    deck.splice(deck.findIndex(deckCard => deckCard.id == card.id), 1)
+    this.setState({playerFullDeck: deck})
   }
 
   render(){
     return(
       <div className='main-container'>
+        {console.log(this.state.playerFullDeck)}
         {this.state.page == 'main' ?
           <MainMenu editDeck={this.editDeck} />
           :
           this.state.page == 'edit' ?
-            <EditDeck startGame={this.startGame} cards={this.state.cards} setCardToDeck={this.setCardToDeck} playerFullDeck={this.state.playerFullDeck} />
+            <EditDeck startGame={this.startGame} cards={this.state.cards} setCardToDeck={this.setCardToDeck} playerFullDeck={this.state.playerFullDeck} removeCardFromDeck={this.removeCardFromDeck} />
             :
             this.state.page == 'game' ?
               <Game mainMenu={this.mainMenu} currentEnemyData={this.state.enemies.find(enemy => enemy.id == this.state.currentEnemy)} cards={this.state.cards}  />

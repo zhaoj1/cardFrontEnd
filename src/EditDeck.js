@@ -18,7 +18,7 @@ class EditDeck extends React.Component{
         <div className='cards-container'>
           {this.props.cards.map(card => 
             <>
-              <Card card={card} setSelectedCard={this.setSelectedCard} />
+              <Card card={card} setSelectedCard={this.setSelectedCard} selectedCard={this.state.selectedCard} setCardToDeck={this.props.setCardToDeck} container='edit' />
             </>
           )}
         </div>
@@ -27,7 +27,7 @@ class EditDeck extends React.Component{
             null
             :
             this.props.playerFullDeck.map(card => {
-              return <Card card={card} />
+              return <Card card={card} setSelectedCard={this.setSelectedCard} selectedCard={this.state.selectedCard} container='deck' removeCardFromDeck={this.props.removeCardFromDeck} />
             })
           }
         </div>
