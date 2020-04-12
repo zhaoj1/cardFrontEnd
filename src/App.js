@@ -61,7 +61,7 @@ export default class App extends React.Component{
   }
 
   setCardToDeck = (card) => {
-    this.state.playerFullDeck.length == 9 ?
+    this.state.playerFullDeck.length == 5 ?
       alert('too many cards plz stop')
       :
       deck = [...this.state.playerFullDeck, card].sort(function (a,b){return (a.id - b.id)})
@@ -79,7 +79,6 @@ export default class App extends React.Component{
   render(){
     return(
       <div className='main-container'>
-        {console.log(this.state.playerFullDeck)}
         {this.state.page == 'main' ?
           <MainMenu editDeck={this.editDeck} />
           :
@@ -87,7 +86,7 @@ export default class App extends React.Component{
             <EditDeck startGame={this.startGame} cards={this.state.cards} setCardToDeck={this.setCardToDeck} playerFullDeck={this.state.playerFullDeck} removeCardFromDeck={this.removeCardFromDeck} />
             :
             this.state.page == 'game' ?
-              <Game mainMenu={this.mainMenu} currentEnemyData={this.state.enemies.find(enemy => enemy.id == this.state.currentEnemy)} cards={this.state.cards}  />
+              <Game mainMenu={this.mainMenu} currentEnemyData={this.state.enemies.find(enemy => enemy.id == this.state.currentEnemy)} cards={this.state.cards} playerFullDeck={this.state.playerFullDeck}  />
               :
               null
         }

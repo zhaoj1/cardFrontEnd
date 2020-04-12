@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from './Card'
 
 export default class Game extends React.Component{
 
@@ -6,15 +7,20 @@ export default class Game extends React.Component{
     playerHP: 10,
     playerMaxHP: 10,
     playerHand: [],
+    selectedCardId: {},
     currentEnemyHP: 0,
     currentEnemyMaxHP: 0,
     currentEnemyFullDeckIndex: [],
-    currentEnemyFullDeck: [],
     currentEnemyHand: []
+  }
+
+  setSelectedCard = (card) => {
+    this.setState({selectedCard:card})
   }
 
   componentDidMount(){
     this.setState({
+      playerHand: this.props.playerFullDeck,
       currentEnemyHP: this.props.currentEnemyData.hp,
       currentEnemyMaxHP: this.props.currentEnemyData.hp,
       currentEnemyFullDeckIndex: this.props.currentEnemyData.deck.slice(1,-1).split(', ').map(n => parseInt(n))
@@ -24,7 +30,6 @@ export default class Game extends React.Component{
         enemyDeck = [...enemyDeck, this.props.cards.find(card => card.id == i)]
       })
       this.setState({
-        currentEnemyFullDeck: enemyDeck,
         currentEnemyHand: enemyDeck
       })
     })
@@ -41,7 +46,11 @@ export default class Game extends React.Component{
             <p>{this.props.currentEnemyData.name}</p>
             <div className='enemy-stats'>
               <p>{this.state.currentEnemyHP}/{this.state.currentEnemyMaxHP}</p>
-              <p>{this.state.currentEnemyHand.length} cards</p>
+              <div className='enemy-hand'>
+                {this.state.currentEnemyHand.map(card => {
+                  return <Card card={card} container='enemy-hand' />
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -51,7 +60,9 @@ export default class Game extends React.Component{
             {this.state.playerHP}/{this.state.playerMaxHP}
           </div>
           <div className='player-hand' >
-            hand
+            {this.state.playerHand.map(card => {
+              return <Card card={card} setSelectedCard={this.setSelectedCard} selectedCard={this.state.selectedCard} container='player-hand' />
+            })}
           </div>
           <div className='graveyard-deck-container' >
             <div className='graveyard' >
