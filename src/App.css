@@ -1,0 +1,104 @@
+html, body, .app, #app>div, #root, .main-container {
+  height: 100%;
+}
+
+.edit-container{
+  height: 100%;
+}
+
+.cards-container{
+  margin: auto;
+  background-color: red;
+  height: 25%;
+  display:flex;
+  margin-top: 2%;
+}
+
+.card{
+  height: 100%;
+  background-color: green;
+  width: 10%;
+  margin-right: 1%;
+} 
+
+.deck-editor{
+  margin: auto;
+  background-color: blue;
+  height: 25%;
+  display:flex;
+  margin-top: 2%;
+}
+
+.game-screen{
+  height: 100%;
+}
+
+.enemy-container{
+  height: 50%;
+  text-align: center;
+}
+
+.enemy-data{
+  height: 100%;
+  margin: auto;
+  background-color: blue;
+  padding: 1%;
+}
+
+.enemy-img{
+  background-color: red;
+  height: 40%;
+  width: 30%;
+  margin: auto;
+}
+
+.enemy-stats{
+  background-color: green;
+  height: 40%;
+  width: 50%;
+  margin: auto;
+}
+
+.player-container{
+  height: 25%;
+  display: flex;
+  background-color: red;
+}
+
+.player-stats{
+  height: 80%;
+  width: 20%;
+  background-color: green;
+  margin:auto;
+}
+
+.player-hand{
+  height: 80%;
+  width: 60%;
+  background-color: blue;
+  margin:auto;
+}
+
+.graveyard-deck-container{
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  width: 5%;
+  background-color: white;
+  margin:auto;
+}
+
+.graveyard{
+  height: 40%;
+  width:70%;
+  background-color: red;
+  margin:auto;
+}
+
+.deck{
+  height: 40%;
+  width:70%;
+  background-color: black;
+  margin:auto;
+  color: white;
+}

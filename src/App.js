@@ -1,6 +1,8 @@
 import React from 'react';
 import MainMenu from './MainMenu'
 import Game from './Game'
+import EditDeck from './EditDeck'
+import './App.css'
 
 export default class App extends React.Component{
   
@@ -11,7 +13,8 @@ export default class App extends React.Component{
       cards: [],
       enemies: [],
       currentEnemy: 1,
-      page: 'main'
+      page: 'main',
+      playerFullDeck:[]
     }
   }
 
@@ -40,6 +43,10 @@ export default class App extends React.Component{
     })
   }
 
+  editDeck = () => {
+    this.setState({page:'edit'})
+  }
+
   startGame = () => {
     this.setState({page: 'game'})
   }
@@ -51,16 +58,25 @@ export default class App extends React.Component{
     })
   }
 
+  setCardToDeck = (card) => {
+    this.setState({
+      playerFullDeck: [...this.state.playerFullDeck, card]
+    })
+  }
+
   render(){
     return(
-      <div>
+      <div className='main-container'>
         {this.state.page == 'main' ?
-          <MainMenu startGame={this.startGame} />
+          <MainMenu editDeck={this.editDeck} />
           :
-          this.state.page == 'game' ?
-            <Game mainMenu={this.mainMenu} currentEnemyData={this.state.enemies.find(enemy => enemy.id == this.state.currentEnemy)} cards={this.state.cards}  />
+          this.state.page == 'edit' ?
+            <EditDeck startGame={this.startGame} cards={this.state.cards} setCardToDeck={this.setCardToDeck} playerFullDeck={this.state.playerFullDeck} />
             :
-            null
+            this.state.page == 'game' ?
+              <Game mainMenu={this.mainMenu} currentEnemyData={this.state.enemies.find(enemy => enemy.id == this.state.currentEnemy)} cards={this.state.cards}  />
+              :
+              null
         }
       </div>
     )
