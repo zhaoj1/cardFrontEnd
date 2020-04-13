@@ -22,7 +22,10 @@ function Card(props){
                 :
                 null
             :
-            () => props.setSelectedCard(props.card) 
+            props.container == 'player-hand' ?
+              (index) => props.setSelectedCard(props.index)
+              :
+              () => props.setSelectedCard(props.card) 
         } 
     >
       {props.container == 'enemy-hand'?

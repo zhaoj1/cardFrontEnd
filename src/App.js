@@ -50,7 +50,10 @@ export default class App extends React.Component{
   }
 
   startGame = () => {
-    this.setState({page: 'game'})
+    this.state.playerFullDeck.length !== 5 ? 
+      alert('deck needs to have 5 cards')
+      :
+      this.setState({page: 'game'})
   }
   
   mainMenu = () => {

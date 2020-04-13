@@ -26,7 +26,7 @@ class EditDeck extends React.Component{
           {this.props.playerFullDeck.length == 0 ?
             null
             :
-            this.props.playerFullDeck.map(card => {
+            this.props.playerFullDeck.map((card) => {
               return <Card card={card} setSelectedCard={this.setSelectedCard} selectedCard={this.state.selectedCard} container='deck' removeCardFromDeck={this.props.removeCardFromDeck} />
             })
           }

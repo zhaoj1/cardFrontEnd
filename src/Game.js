@@ -7,15 +7,18 @@ export default class Game extends React.Component{
     playerHP: 10,
     playerMaxHP: 10,
     playerHand: [],
-    selectedCardId: {},
+    selectedCardIndex: {},
     currentEnemyHP: 0,
     currentEnemyMaxHP: 0,
     currentEnemyFullDeckIndex: [],
-    currentEnemyHand: []
+    currentEnemyHand: [],
+    turn: 'player'
   }
 
-  setSelectedCard = (card) => {
-    this.setState({selectedCard:card})
+  setSelectedCard = (index) => {
+    this.setState({
+      selectedCardIndex: index
+    })
   }
 
   componentDidMount(){
@@ -60,16 +63,13 @@ export default class Game extends React.Component{
             {this.state.playerHP}/{this.state.playerMaxHP}
           </div>
           <div className='player-hand' >
-            {this.state.playerHand.map(card => {
-              return <Card card={card} setSelectedCard={this.setSelectedCard} selectedCard={this.state.selectedCard} container='player-hand' />
+            {this.state.playerHand.map((card, index) => {
+              return <Card card={card} setSelectedCard={this.setSelectedCard} selectedCard={this.state.selectedCard} container='player-hand' index={index} />
             })}
           </div>
-          <div className='graveyard-deck-container' >
+          <div className='graveyard-container' >
             <div className='graveyard' >
               graveyard
-            </div>
-            <div className='deck' >
-              deck
             </div>
           </div>
         </div>
