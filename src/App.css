@@ -64,6 +64,7 @@ html, body, .app, #app>div, #root, .main-container {
   display: flex;
   background-color: red;
   justify-content: center;
+  width: 70%;
 }
 
 .enemy-img{
@@ -78,6 +79,19 @@ html, body, .app, #app>div, #root, .main-container {
   height: 40%;
   width: 50%;
   margin: auto;
+}
+
+.enemy-deck{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.enemy-graveyard{
+  height: 70%;
+  width:15%;
+  background-color: black;
+  color: white;
 }
 
 .player-container{
