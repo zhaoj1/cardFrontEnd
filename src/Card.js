@@ -7,7 +7,13 @@ function Card(props){
         {props.container =='enemy-hand' ?
           'card-back'
           :
-          props.selectedCard !== undefined && props.card.id == props.selectedCard.id ? 'selected-card' : 'card'
+          props.selectedCard !== undefined && props.card.id == props.selectedCard.id ? 
+            'selected-card' 
+            : 
+            props.selectedCardIndex !== undefined && props.index == props.selectedCardIndex ?
+              'selected-card'
+              :
+              'card'
         } 
       onClick=
         {props.container == 'enemy-hand' ?
@@ -23,9 +29,12 @@ function Card(props){
                 null
             :
             props.container == 'player-hand' ?
-              (index) => props.setSelectedCard(props.index)
+            props.selectedCardIndex == props.index ?
+              (card) => props.playCard(props.card)
               :
-              () => props.setSelectedCard(props.card) 
+                (index) => props.setSelectedCard(props.index)
+                :
+                () => props.setSelectedCard(props.card) 
         } 
     >
       {props.container == 'enemy-hand'?
