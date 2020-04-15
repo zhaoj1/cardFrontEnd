@@ -16,7 +16,7 @@ function Card(props){
               'card'
         } 
       onClick=
-        {props.container == 'enemy-hand' ?
+        {props.container == 'enemy-hand' || props.turn =='enemy' ?
           null
           :
           props.selectedCard !== undefined && props.card.id == props.selectedCard.id ? 

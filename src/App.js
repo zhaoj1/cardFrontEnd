@@ -59,7 +59,8 @@ export default class App extends React.Component{
   mainMenu = () => {
     this.setState({
       page: 'main',
-      currentEnemy: 1
+      currentEnemy: 1,
+      playerFullDeck: []
     })
   }
 
