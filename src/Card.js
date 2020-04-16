@@ -45,12 +45,12 @@ function Card(props){
       {props.container == 'enemy-hand'?
         null
         :
-        <>
+        <div className='card-face'>
           {props.card.name}<br></br>
           {props.card.description}<br></br>
           {props.card.effect_type}<br></br>
           {props.card.hp_effect}<br></br>
-        </>
+        </div>
       }
     </div>
   )

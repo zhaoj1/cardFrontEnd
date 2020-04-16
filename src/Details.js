@@ -4,9 +4,9 @@ function Details(props){
   return(
     <div className='details'>
       {props.selectedCard == undefined || props.selectedCard.id == undefined?
-        <div>deets</div>
+        null
         :
-        <div>
+        <div className='card-face'>
           <p>{props.selectedCard.name}</p>
           <p>{props.selectedCard.description}</p>
           <p>{props.selectedCard.effect_type}</p>

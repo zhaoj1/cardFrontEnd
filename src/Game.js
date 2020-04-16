@@ -6,8 +6,8 @@ import GraveyardCard from './GraveyardCard';
 var playerHand, enemyHand, enemyCard
 
 const defaultState = {
-  playerHP: 10,
-  playerMaxHP: 10,
+  playerHP: 150,
+  playerMaxHP: 150,
   playerHand: [],
   playerGraveyard: [],
   selectedCardIndex: null,
@@ -149,9 +149,6 @@ export default class Game extends React.Component{
                   {this.state.currentEnemyHand.map(card => {
                     return <Card card={card} container='enemy-hand' playCard={this.playCard} />
                   })}
-                </div>
-                <div className='enemy-graveyard'>
-                  <label className='graveyard-length'>{this.state.currentEnemyGraveyard.length}</label>
                 </div>
               </div>
             </div>
