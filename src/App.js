@@ -80,12 +80,6 @@ export default class App extends React.Component{
     this.setState({playerFullDeck: deck})
   }
 
-  gameWon = () => {
-    this.setState({currentEnemy: this.state.currentEnemy + 1}, () => {
-      console.log(this.state.currentEnemy)
-    })
-  }
-
   render(){
     return(
       <div className='main-container'>
@@ -96,7 +90,7 @@ export default class App extends React.Component{
             <EditDeck startGame={this.startGame} cards={this.state.cards} setCardToDeck={this.setCardToDeck} playerFullDeck={this.state.playerFullDeck} removeCardFromDeck={this.removeCardFromDeck} />
             :
             this.state.page == 'game' ?
-              <Game mainMenu={this.mainMenu} currentEnemyData={this.state.enemies.find(enemy => enemy.id == this.state.currentEnemy)} cards={this.state.cards} playerFullDeck={this.state.playerFullDeck} gameWon={this.gameWon} />
+              <Game mainMenu={this.mainMenu} enemies={this.state.enemies} cards={this.state.cards} playerFullDeck={this.state.playerFullDeck} gameWon={this.gameWon} />
               :
               null
         }

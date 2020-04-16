@@ -16,12 +16,24 @@ const defaultState = {
   currentEnemyFullDeckIndex: [],
   currentEnemyHand: [],
   currentEnemyGraveyard: [],
-  turn: 'player'
+  turn: 'player',
+  currentEnemy: 1,
 }
 
 export default class Game extends React.Component{
 
   state = defaultState
+
+  componentDidMount(){
+    this.setState({
+      playerHand: [...this.props.playerFullDeck],
+      currentEnemyHP: this.props.enemies.find(enemy => enemy.id == this.state.currentEnemy).hp,
+      currentEnemyMaxHP: this.props.enemies.find(enemy => enemy.id == this.state.currentEnemy).hp,
+      currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.state.currentEnemy).deck.slice(1,-1).split(', ').map(n => parseInt(n))
+    }, () => {
+      this.setEnemyDeck()
+    })
+  }
 
   setSelectedCard = (index) => {
     this.setState({
@@ -59,6 +71,7 @@ export default class Game extends React.Component{
         turn: 'enemy'
       })
     }
+    this.fightEnd();
     setTimeout(() => {this.playEnemyCard()}, 200)
   }
 
@@ -93,6 +106,7 @@ export default class Game extends React.Component{
         })
       }
     }
+    this.fightEnd();
   }
 
   setEnemyDeck = () => {
@@ -115,20 +129,29 @@ export default class Game extends React.Component{
     }, () => {setTimeout(() => this.playEnemyCard(), 200)})
   }
 
-  componentDidMount(){
-    this.setState({
-      playerHand: [...this.props.playerFullDeck],
-      currentEnemyHP: this.props.currentEnemyData.hp,
-      currentEnemyMaxHP: this.props.currentEnemyData.hp,
-      currentEnemyFullDeckIndex: this.props.currentEnemyData.deck.slice(1,-1).split(', ').map(n => parseInt(n))
-    }, () => {
-      this.setEnemyDeck()
-    })
-  }
-
   reset = () => {
     this.props.mainMenu();
     this.setState(defaultState)
+  }
+
+  fightEnd = () => {
+    return this.state.currentEnemyHP <= 0 ?
+      this.setState({
+        currentEnemy: this.state.currentEnemy + 1
+      }, () => {this.setState({
+        playerHand: [...this.props.playerFullDeck],
+        playerHP: this.state.playerMaxHP,
+        currentEnemyHP: this.props.enemies.find(enemy => enemy.id == this.state.currentEnemy).hp,
+        currentEnemyMaxHP: this.props.enemies.find(enemy => enemy.id == this.state.currentEnemy).hp,
+        currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.state.currentEnemy).deck.slice(1,-1).split(', ').map(n => parseInt(n))})
+      }, () => {
+        this.setEnemyDeck()
+      })
+      :
+      this.state.playerHP <= 0 ?
+        this.reset()
+        :
+        null
   }
 
   render(){
@@ -138,23 +161,20 @@ export default class Game extends React.Component{
           <div className='detail-container'>
             <Details selectedCard={this.state.playerHand[this.state.selectedCardIndex]} />
           </div>
-          {this.props.currentEnemyData == undefined ?
-            null
-            :
-            <div className='enemy-data'>
-              <div className='enemy-img'>enemy img</div>
-              <p>{this.props.currentEnemyData.name}</p>
-              <div className='enemy-stats'>
-                <p className='enemy-hp'>{this.state.currentEnemyHP}/{this.state.currentEnemyMaxHP}</p>
-                <div className='enemy-deck'>
-                  <div className='enemy-hand'>
-                    {this.state.currentEnemyHand.map(card => {
-                      return <Card card={card} container='enemy-hand' playCard={this.playCard} />
-                    })}
-                  </div>
+          <div className='enemy-data'>
+            <div className='enemy-img'>enemy img</div>
+            <p>{this.props.enemies.find(enemy => enemy.id == this.state.currentEnemy).name}</p>
+            <div className='enemy-stats'>
+              <p className='enemy-hp'>{this.state.currentEnemyHP}/{this.state.currentEnemyMaxHP}</p>
+              <div className='enemy-deck'>
+                <div className='enemy-hand'>
+                  {this.state.currentEnemyHand.map(card => {
+                    return <Card card={card} container='enemy-hand' playCard={this.playCard} />
+                  })}
                 </div>
               </div>
-            </div>}
+            </div>
+          </div>
           <div className='game-mat-right'>
             <button onClick={this.reset} >Main Menu</button><br></br>
             enemy graveyard<br></br>
