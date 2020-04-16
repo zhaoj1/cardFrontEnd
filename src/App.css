@@ -249,6 +249,7 @@ html, body, .app, #app>div, #root, .main-container {
   height: 100%;
   width: 80%;
   background-color: green;
+  color: white;
   margin:auto;
   background-image: url('./images/player_back.png');
   background-position: center;

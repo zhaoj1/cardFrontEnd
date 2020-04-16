@@ -134,25 +134,27 @@ export default class Game extends React.Component{
   render(){
     return(
       <div className='game-screen'>
-        Game Screen<br></br>
         <div className='game-mat'>
           <div className='detail-container'>
             <Details selectedCard={this.state.playerHand[this.state.selectedCardIndex]} />
           </div>
-          <div className='enemy-data'>
-            <div className='enemy-img'>enemy img</div>
-            <p>{this.props.currentEnemyData.name}</p>
-            <div className='enemy-stats'>
-              <p className='enemy-hp'>{this.state.currentEnemyHP}/{this.state.currentEnemyMaxHP}</p>
-              <div className='enemy-deck'>
-                <div className='enemy-hand'>
-                  {this.state.currentEnemyHand.map(card => {
-                    return <Card card={card} container='enemy-hand' playCard={this.playCard} />
-                  })}
+          {this.props.currentEnemyData == undefined ?
+            null
+            :
+            <div className='enemy-data'>
+              <div className='enemy-img'>enemy img</div>
+              <p>{this.props.currentEnemyData.name}</p>
+              <div className='enemy-stats'>
+                <p className='enemy-hp'>{this.state.currentEnemyHP}/{this.state.currentEnemyMaxHP}</p>
+                <div className='enemy-deck'>
+                  <div className='enemy-hand'>
+                    {this.state.currentEnemyHand.map(card => {
+                      return <Card card={card} container='enemy-hand' playCard={this.playCard} />
+                    })}
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </div>}
           <div className='game-mat-right'>
             <button onClick={this.reset} >Main Menu</button><br></br>
             enemy graveyard<br></br>
