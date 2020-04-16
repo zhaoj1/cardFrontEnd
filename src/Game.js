@@ -151,8 +151,7 @@ export default class Game extends React.Component{
                   })}
                 </div>
                 <div className='enemy-graveyard'>
-                  graveyard<br></br>
-                  {this.state.currentEnemyGraveyard.length}
+                  <label className='graveyard-length'>{this.state.currentEnemyGraveyard.length}</label>
                 </div>
               </div>
             </div>
@@ -192,8 +191,7 @@ export default class Game extends React.Component{
                 'graveyard' 
               }
             >
-              graveyard<br></br>
-              {this.state.playerGraveyard.length}
+              <label className='graveyard-length'>{this.state.playerGraveyard.length}</label>
             </div>
           </div>
         </div>

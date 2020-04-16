@@ -15,10 +15,14 @@ html, body, .app, #app>div, #root, .main-container {
 
 .card{
   height: 100%;
-  background-color: green;
   width: 20%;
   margin-right: 1%;
   text-align: center;
+  background-image: url('./images/front.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
 } 
 
 .selected-card{
@@ -27,13 +31,20 @@ html, body, .app, #app>div, #root, .main-container {
   width: 20%;
   margin-right: 1%;
   text-align: center;
+  background-image: url('./images/front.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 } 
 
 .card-back{
   height: 100%;
-  background-color: brown;
   width: 20%;
   margin-right: 1%;
+  background-image: url('./images/enemy_back.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .edit-card-container{
@@ -152,17 +163,27 @@ html, body, .app, #app>div, #root, .main-container {
   width:15%;
   background-color: black;
   color: white;
+  background-image: url('./images/enemy_back.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+}
+
+.graveyard-length{
+  margin: auto;
+  font-weight: bold;
 }
 
 .player-container{
-  height: 25%;
+  height: 40%;
   display: flex;
   background-color: red;
 }
 
 .player-stats{
   height: 80%;
-  width: 10%;
+  width: 17%;
   background-color: green;
   margin:auto;
   display: flex;
@@ -192,7 +213,7 @@ html, body, .app, #app>div, #root, .main-container {
 
 .graveyard-container{
   height: 80%;
-  width: 10%;
+  width: 13%;
   background-color: white;
   margin:auto;
   display:flex; 
@@ -200,17 +221,28 @@ html, body, .app, #app>div, #root, .main-container {
 }
 
 .graveyard{
-  height: 80%;
-  width:70%;
+  height: 100%;
+  width: 80%;
   background-color: black;
   margin:auto;
   color: white;
   text-align: center;
+  display: flex;
+  background-image: url('./images/player_back.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
 }
 
 .click-graveyard{
-  height: 80%;
-  width:70%;
+  height: 100%;
+  width: 80%;
   background-color: green;
   margin:auto;
+  background-image: url('./images/player_back.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
 }

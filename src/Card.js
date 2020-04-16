@@ -1,4 +1,9 @@
 import React from 'react';
+import big_dmg from './images/big_dmg.png'
+import lil_dmg from './images/lil_dmg.png'
+import heal from './images/heal.png'
+import vamp from './images/vamp.png'
+import cardFront from './images/front.png'
 
 function Card(props){
   return(
@@ -38,9 +43,7 @@ function Card(props){
         } 
     >
       {props.container == 'enemy-hand'?
-        <>
-          card-back
-        </>
+        null
         :
         <>
           {props.card.name}<br></br>
