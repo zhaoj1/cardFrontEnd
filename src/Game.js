@@ -130,8 +130,7 @@ export default class Game extends React.Component{
   }
 
   reset = () => {
-    this.props.mainMenu();
-    this.setState(defaultState)
+    this.props.openModal();
   }
 
   fightEnd = () => {

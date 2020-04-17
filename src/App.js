@@ -3,8 +3,23 @@ import MainMenu from './MainMenu'
 import Game from './Game'
 import EditDeck from './EditDeck'
 import './App.css'
+import Modal from 'react-modal'
+import Confirmation from './Confirmation'
 
 var deck
+
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
+
+Modal.setAppElement('#root');
 
 export default class App extends React.Component{
   
@@ -16,7 +31,9 @@ export default class App extends React.Component{
       enemies: [],
       currentEnemy: 1,
       page: 'main',
-      playerFullDeck:[]
+      playerFullDeck:[],
+      modal: false,
+      modalContents: null
     }
   }
 
@@ -60,7 +77,9 @@ export default class App extends React.Component{
     this.setState({
       page: 'main',
       currentEnemy: 1,
-      playerFullDeck: []
+      playerFullDeck: [],
+      modal: false,
+      modalContents: null
     })
   }
 
@@ -80,9 +99,37 @@ export default class App extends React.Component{
     this.setState({playerFullDeck: deck})
   }
 
+  openModal = () => {
+    this.setState({
+      modal: true, 
+      modalContents: 'main menu'
+    })
+  }
+
+  closeModal = () => {
+    this.setState({
+      modal: false,
+      modalContents: null
+    })
+  }
+
   render(){
     return(
       <div className='main-container'>
+        <Modal
+          isOpen={this.state.modal}
+          onRequestClose={this.mainMenu}
+          style={customStyles}
+        >
+          {this.state.modal == true && this.state.modalContents == 'main menu' ?
+            <Confirmation confirm={this.mainMenu} closeModal={this.closeModal} />
+            :
+            this.state.modalContents == 'next fight' ?
+              <Confirmation confirm={this.mainMenu} closeModal={this.closeModal} />
+              :
+              null
+          }
+        </Modal>
         {this.state.page == 'main' ?
           <MainMenu editDeck={this.editDeck} />
           :
@@ -90,7 +137,7 @@ export default class App extends React.Component{
             <EditDeck startGame={this.startGame} cards={this.state.cards} setCardToDeck={this.setCardToDeck} playerFullDeck={this.state.playerFullDeck} removeCardFromDeck={this.removeCardFromDeck} />
             :
             this.state.page == 'game' ?
-              <Game mainMenu={this.mainMenu} enemies={this.state.enemies} cards={this.state.cards} playerFullDeck={this.state.playerFullDeck} gameWon={this.gameWon} />
+              <Game mainMenu={this.mainMenu} enemies={this.state.enemies} cards={this.state.cards} playerFullDeck={this.state.playerFullDeck} gameWon={this.gameWon} openModal={this.openModal} />
               :
               null
         }
