@@ -11,7 +11,7 @@ CSS
 
 Things in progress:  
 &nbsp;&nbsp;[] add confirmation screens:  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] quitting to main menu   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] quitting to main menu   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] moving on to next fight  
 &nbsp;&nbsp;[] graveyard cards details  
 &nbsp;&nbsp;[] add icons to cards  
