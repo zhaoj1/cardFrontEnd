@@ -83,6 +83,14 @@ export default class App extends React.Component{
     })
   }
 
+  nextFight = () => {
+    this.state.currentEnemy == this.state.enemies.length ?
+      this.mainMenu()
+      :
+      this.setState({currentEnemy: this.state.currentEnemy + 1})
+      this.closeModal();
+  }
+
   setCardToDeck = (card) => {
     this.state.playerFullDeck.length == 5 ?
       alert('too many cards plz stop')
@@ -121,14 +129,7 @@ export default class App extends React.Component{
           onRequestClose={this.mainMenu}
           style={customStyles}
         >
-          {this.state.modal == true && this.state.modalContents == 'main menu' ?
-            <Confirmation confirm={this.mainMenu} closeModal={this.closeModal} />
-            :
-            this.state.modalContents == 'next fight' ?
-              <Confirmation confirm={this.mainMenu} closeModal={this.closeModal} />
-              :
-              null
-          }
+          <Confirmation mainMenu={this.mainMenu} nextFight={this.nextFight} closeModal={this.closeModal} modalContents={this.state.modalContents} />
         </Modal>
         {this.state.page == 'main' ?
           <MainMenu editDeck={this.editDeck} />
