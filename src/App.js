@@ -33,7 +33,7 @@ export default class App extends React.Component{
       page: 'main',
       playerFullDeck:[],
       modal: false,
-      modalContents: null
+      modalContents: ''
     }
   }
 
@@ -79,13 +79,13 @@ export default class App extends React.Component{
       currentEnemy: 1,
       playerFullDeck: [],
       modal: false,
-      modalContents: null
+      modalContents: ''
     })
   }
 
-  nextFight = () => {
+  nextEnemy = () => {
     this.state.currentEnemy == this.state.enemies.length ?
-      this.mainMenu()
+      this.setState({modalContents: 'congrats'},()=>{console.log('ok')})
       :
       this.setState({currentEnemy: this.state.currentEnemy + 1})
       this.closeModal();
@@ -107,17 +107,17 @@ export default class App extends React.Component{
     this.setState({playerFullDeck: deck})
   }
 
-  openModal = () => {
+  openModal = (contents) => {
     this.setState({
       modal: true, 
-      modalContents: 'main menu'
+      modalContents: contents
     })
   }
 
   closeModal = () => {
     this.setState({
       modal: false,
-      modalContents: null
+      modalContents: ''
     })
   }
 
@@ -129,7 +129,7 @@ export default class App extends React.Component{
           onRequestClose={this.mainMenu}
           style={customStyles}
         >
-          <Confirmation mainMenu={this.mainMenu} nextFight={this.nextFight} closeModal={this.closeModal} modalContents={this.state.modalContents} />
+          <Confirmation mainMenu={this.mainMenu} nextFight={this.nextFight} closeModal={this.closeModal} modalContents={this.state.modalContents} nextEnemy={this.nextEnemy} />
         </Modal>
         {this.state.page == 'main' ?
           <MainMenu editDeck={this.editDeck} />
@@ -138,7 +138,7 @@ export default class App extends React.Component{
             <EditDeck startGame={this.startGame} cards={this.state.cards} setCardToDeck={this.setCardToDeck} playerFullDeck={this.state.playerFullDeck} removeCardFromDeck={this.removeCardFromDeck} />
             :
             this.state.page == 'game' ?
-              <Game mainMenu={this.mainMenu} enemies={this.state.enemies} cards={this.state.cards} playerFullDeck={this.state.playerFullDeck} gameWon={this.gameWon} openModal={this.openModal} />
+              <Game mainMenu={this.mainMenu} enemies={this.state.enemies} cards={this.state.cards} playerFullDeck={this.state.playerFullDeck} currentEnemy={this.state.currentEnemy} gameWon={this.gameWon} openModal={this.openModal} />
               :
               null
         }
