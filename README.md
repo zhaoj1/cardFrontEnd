@@ -18,5 +18,7 @@ Things in progress:
 &nbsp;&nbsp;[] CSS:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] card fronts   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] health bars  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] enemy healthbar
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] convert player health to healthbar
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] main menu  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] game mat
