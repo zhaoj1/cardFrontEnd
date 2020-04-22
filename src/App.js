@@ -127,7 +127,6 @@ export default class App extends React.Component{
       <div className='main-container'>
         <Modal
           isOpen={this.state.modal}
-          // onRequestClose={this.mainMenu} 
           style={customStyles}
         >
           <Confirmation mainMenu={this.mainMenu} closeModal={this.closeModal} modalContents={this.state.modalContents} nextEnemy={this.nextEnemy} gameCompleted={this.gameCompleted} currentEnemy={this.state.currentEnemy} enemies={this.state.enemies} />

@@ -46,10 +46,15 @@ function Card(props){
         null
         :
         <div className='card-face'>
-          {props.card.name}<br></br>
-          {props.card.description}<br></br>
-          {props.card.effect_type}<br></br>
-          {props.card.hp_effect}<br></br>
+          <div className='card-name'>{props.card.name}</div>
+          <div className='card-img'>
+            <img
+              style={{
+                'background-image':`url(${big_dmg})`
+              }}
+            />
+          </div>
+          <div className='card-description'>{props.card.description}</div>
         </div>
       }
     </div>
