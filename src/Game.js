@@ -166,7 +166,7 @@ export default class Game extends React.Component{
             <div className='enemy-img'>enemy img</div>
             <p>{this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name}</p>
             <div className='enemy-stats'>
-              <p className='enemy-hp'>{this.state.currentEnemyHP}/{this.state.currentEnemyMaxHP}</p>
+              <div className='enemy-hp'>{this.state.currentEnemyHP}/{this.state.currentEnemyMaxHP}</div>
               <div className='enemy-deck'>
                 <div className='enemy-hand'>
                   {this.state.currentEnemyHand.map(card => {

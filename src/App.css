@@ -40,20 +40,23 @@ html, body, .app, #app>div, #root, .main-container {
 
 .card-name{
   height: 10%;
-  
-  background-color: white;
+  background-color: rgba(222,184,135, .5);
   margin-bottom:15%;
+  border-radius: 5px;
 }
 
 .card-img{
   height: 4rem;
-  background-color: red;
   margin-bottom:15%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .card-description{
   height: 10%;
-  background-color: white;
+  background-color: rgba(222,184,135, .5);
+  border-radius: 5px;
 }
 
 .selected-card{
@@ -69,6 +72,27 @@ html, body, .app, #app>div, #root, .main-container {
   background-size: contain;
   display: flex;
 } 
+
+.selected-card-name{
+  height: 10%;
+  background-color: rgba(222,184,135, .5);
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.selected-card-img{
+  height: 10rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.selected-card-description{
+  height: 10%;
+  background-color: rgba(222,184,135, .5);
+  border-radius: 5px;
+  font-size: 20px;
+}
 
 .card-back{
   height: 100%;
@@ -112,6 +136,7 @@ html, body, .app, #app>div, #root, .main-container {
 }
 
 .details{
+  height: 60%;
   width: 100%;
   margin: auto;
   display: flex;
