@@ -183,7 +183,7 @@ export default class Game extends React.Component{
             </div>
           </div>
           <div className='game-mat-right'>
-            <button onClick={() => this.props.openModal('main menu')} >Main Menu</button><br></br>
+            <button className='main-menu-btn' onClick={() => this.props.openModal('main menu')} >Main Menu</button><br></br>
             enemy graveyard<br></br>
             <div className='graveyard-details'>
               {this.state.currentEnemyGraveyard.map(card => {

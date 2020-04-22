@@ -173,10 +173,19 @@ html, body, .app, #app>div, #root, .main-container {
   justify-content: space-around;
 }
 
+.main-menu-btn{
+  width: 20%;
+  margin: auto;
+  margin-bottom: 0;
+  float: top;
+}
+
 .graveyard-details{
   height: 30%;
+  width: 100%;
   background-color: green;
   display: flex;
+  margin: auto;
 }
 
 .graveyardCard{
