@@ -226,6 +226,11 @@ html, body, .app, #app>div, #root, .main-container {
   margin-bottom: 2%;
 }
 
+.enemy-blood{
+  background-color: red;
+  font-weight: bold;
+}
+
 .enemy-deck{
   height: 100%;
   display: flex;
@@ -253,15 +258,16 @@ html, body, .app, #app>div, #root, .main-container {
 
 .player-hp{
   margin: auto;
-  background-color: white;
+  background-color: red;
   height: 80%;
   width: 80%;
   border-radius: 50%;
   display: flex;
 }
 
-.hp{
+.player-blood{
   margin: auto;
+  font-weight: bold;
 }
 
 .player-hand{

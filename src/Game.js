@@ -166,7 +166,13 @@ export default class Game extends React.Component{
             <div className='enemy-img'>enemy img</div>
             <p>{this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name}</p>
             <div className='enemy-stats'>
-              <div className='enemy-hp'>{this.state.currentEnemyHP}/{this.state.currentEnemyMaxHP}</div>
+              <div className='enemy-hp'>
+                <div className='enemy-blood'
+                  style={{
+                    'width':`${this.state.currentEnemyHP/this.state.currentEnemyMaxHP*100}%`
+                  }}
+                >{this.state.currentEnemyHP}/{this.state.currentEnemyMaxHP}</div>
+              </div>
               <div className='enemy-deck'>
                 <div className='enemy-hand'>
                   {this.state.currentEnemyHand.map(card => {
@@ -195,7 +201,7 @@ export default class Game extends React.Component{
         <div className='player-container' >
           <div className='player-stats' >
             <div className='player-hp'>
-              <p className='hp'>{this.state.playerHP}/{this.state.playerMaxHP}</p>
+              <div className='player-blood'>{this.state.playerHP}/{this.state.playerMaxHP}</div>
             </div>
           </div>
           <div className='player-hand' >
