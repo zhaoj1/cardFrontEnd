@@ -1,4 +1,8 @@
 import React from 'react';
+import big_dmg from './images/big_dmg.png'
+import lil_dmg from './images/lil_dmg.png'
+import heal from './images/heal.png'
+import vamp from './images/vamp.png'
 
 function Details(props){
   return(
@@ -7,10 +11,24 @@ function Details(props){
         null
         :
         <div className='card-face'>
-          <p>{props.selectedCard.name}</p>
-          <p>{props.selectedCard.description}</p>
-          <p>{props.selectedCard.effect_type}</p>
-          <p>{props.selectedCard.hp_effect}</p>
+          <div className='selected-card-name'>{props.selectedCard.name}</div>
+          <div className='selected-card-img' style={{
+                'background-image':
+                  props.selectedCard.effect_type == 'damage' && props.selectedCard.hp_effect == 1000 ?
+                    `url(${big_dmg})`
+                    :
+                    props.selectedCard.effect_type == 'damage' && props.selectedCard.hp_effect == 5 ?
+                      `url(${lil_dmg})`
+                      :
+                      props.selectedCard.effect_type == 'heal' ?
+                        `url(${heal})`
+                        :
+                        props.selectedCard.effect_type == 'vamp' ?
+                          `url(${vamp})`
+                          :
+                          null
+          }}></div>
+          <div className='selected-card-description'>{props.selectedCard.description}</div>
         </div>
       }
     </div>
