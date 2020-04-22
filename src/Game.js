@@ -16,8 +16,7 @@ const defaultState = {
   currentEnemyFullDeckIndex: [],
   currentEnemyHand: [],
   currentEnemyGraveyard: [],
-  turn: 'player',
-  currentEnemy: 1,
+  turn: 'player'
 }
 
 export default class Game extends React.Component{
@@ -27,12 +26,28 @@ export default class Game extends React.Component{
   componentDidMount(){
     this.setState({
       playerHand: [...this.props.playerFullDeck],
-      currentEnemyHP: this.props.enemies.find(enemy => enemy.id == this.state.currentEnemy).hp,
-      currentEnemyMaxHP: this.props.enemies.find(enemy => enemy.id == this.state.currentEnemy).hp,
-      currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.state.currentEnemy).deck.slice(1,-1).split(', ').map(n => parseInt(n))
+      currentEnemyHP: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).hp,
+      currentEnemyMaxHP: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).hp,
+      currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).deck.slice(1,-1).split(', ').map(n => parseInt(n))
     }, () => {
       this.setEnemyDeck()
     })
+  }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.currentEnemy !== this.props.currentEnemy){
+      this.setState({
+        playerHand: [...this.props.playerFullDeck],
+        playerHP: this.state.playerMaxHP,
+        playerGraveyard: [],
+        selectedCardIndex: null,
+        currentEnemyHP: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).hp,
+        currentEnemyMaxHP: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).hp,
+        currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).deck.slice(1,-1).split(', ').map(n => parseInt(n))
+      }, () => {
+        this.setEnemyDeck()
+      })
+    }
   }
 
   setSelectedCard = (index) => {
@@ -52,7 +67,7 @@ export default class Game extends React.Component{
         selectedCardIndex: null,
         playerGraveyard: [...this.state.playerGraveyard, card],
         turn: 'enemy'
-      })
+      }, () => {this.fightEnd();})
     }else if(card.effect_type == 'heal'){
       this.setState({
         playerHP: this.state.playerHP + card.hp_effect,
@@ -60,7 +75,7 @@ export default class Game extends React.Component{
         selectedCardIndex: null,
         playerGraveyard: [...this.state.playerGraveyard, card],
         turn: 'enemy'
-      })
+      }, () => {this.fightEnd();})
     }else if(card.effect_type == 'vamp'){
       this.setState({
         playerHP: this.state.playerHP + card.hp_effect,
@@ -69,10 +84,9 @@ export default class Game extends React.Component{
         selectedCardIndex: null,
         playerGraveyard: [...this.state.playerGraveyard, card],
         turn: 'enemy'
-      })
+      }, () => {this.fightEnd();})
     }
-    this.fightEnd();
-    setTimeout(() => {this.playEnemyCard()}, 200)
+    
   }
 
   playEnemyCard = () => {
@@ -106,7 +120,9 @@ export default class Game extends React.Component{
         })
       }
     }
-    this.fightEnd();
+    if(this.state.playerHP <= 0){
+      this.props.openModal('lose')
+    }
   }
 
   setEnemyDeck = () => {
@@ -129,28 +145,14 @@ export default class Game extends React.Component{
     }, () => {setTimeout(() => this.playEnemyCard(), 200)})
   }
 
-  reset = () => {
-    this.props.openModal();
-  }
-
   fightEnd = () => {
-    return this.state.currentEnemyHP <= 0 ?
-      this.setState({
-        currentEnemy: this.state.currentEnemy + 1
-      }, () => {this.setState({
-        playerHand: [...this.props.playerFullDeck],
-        playerHP: this.state.playerMaxHP,
-        currentEnemyHP: this.props.enemies.find(enemy => enemy.id == this.state.currentEnemy).hp,
-        currentEnemyMaxHP: this.props.enemies.find(enemy => enemy.id == this.state.currentEnemy).hp,
-        currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.state.currentEnemy).deck.slice(1,-1).split(', ').map(n => parseInt(n))})
-      }, () => {
-        this.setEnemyDeck()
-      })
-      :
-      this.state.playerHP <= 0 ?
-        this.reset()
-        :
-        null
+    if(this.state.currentEnemyHP <= 0){
+      this.props.openModal('victory')
+    }else if(this.state.playerHP <= 0){
+      this.props.openModal('lose')
+    }else{
+      setTimeout(() => {this.playEnemyCard()}, 200)
+    }
   }
 
   render(){
@@ -162,7 +164,7 @@ export default class Game extends React.Component{
           </div>
           <div className='enemy-data'>
             <div className='enemy-img'>enemy img</div>
-            <p>{this.props.enemies.find(enemy => enemy.id == this.state.currentEnemy).name}</p>
+            <p>{this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name}</p>
             <div className='enemy-stats'>
               <p className='enemy-hp'>{this.state.currentEnemyHP}/{this.state.currentEnemyMaxHP}</p>
               <div className='enemy-deck'>
@@ -175,7 +177,7 @@ export default class Game extends React.Component{
             </div>
           </div>
           <div className='game-mat-right'>
-            <button onClick={this.reset} >Main Menu</button><br></br>
+            <button onClick={() => this.props.openModal('main menu')} >Main Menu</button><br></br>
             enemy graveyard<br></br>
             <div className='graveyard-details'>
               {this.state.currentEnemyGraveyard.map(card => {
