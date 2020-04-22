@@ -14,9 +14,9 @@ Things in progress:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] quitting to main menu   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] moving on to next fight  
 &nbsp;&nbsp;[] graveyard cards details  
-&nbsp;&nbsp;[] add icons to cards  
+&nbsp;&nbsp;[X] add icons to cards  
 &nbsp;&nbsp;[] CSS:  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] card fronts   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] card fronts   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] health bars  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] main menu  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] game mat
