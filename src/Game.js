@@ -200,24 +200,32 @@ export default class Game extends React.Component{
         </div>
         <div className='player-container' >
           <div className='player-stats' >
-            <div className='player-hp'>
-              <div className='player-blood'>{this.state.playerHP}/{this.state.playerMaxHP}</div>
+            <div className='player-hp' >
+              <div className='player-blood'
+                style={{
+                  'width ':`${this.state.playerHP/this.state.playerMaxHP*100}%`
+                }}
+              >
+                <p className='hp' >{this.state.playerHP}/{this.state.playerMaxHP}</p>
+              </div>
             </div>
           </div>
-          <div className='player-hand' >
-            {this.state.playerHand.map((card, index) => {
-              return <Card card={card} setSelectedCard={this.setSelectedCard} selectedCardIndex={this.state.selectedCardIndex} container='player-hand' index={index} playCard={this.playCard} turn={this.state.turn} />
-            })}
-          </div>
-          <div className='graveyard-container' onClick={this.setPlayerDeck} >
-            <div className=
-              {this.state.playerHand.length == 0 ?
-                'click-graveyard'
-                :
-                'graveyard' 
-              }
-            >
-              <label className='graveyard-length'>{this.state.playerGraveyard.length}</label>
+          <div className='player-cards-container' >
+            <div className='player-hand' >
+              {this.state.playerHand.map((card, index) => {
+                return <Card card={card} setSelectedCard={this.setSelectedCard} selectedCardIndex={this.state.selectedCardIndex} container='player-hand' index={index} playCard={this.playCard} turn={this.state.turn} />
+              })}
+            </div>
+            <div className='graveyard-container' onClick={this.setPlayerDeck} >
+              <div className=
+                {this.state.playerHand.length == 0 ?
+                  'click-graveyard'
+                  :
+                  'graveyard' 
+                }
+              >
+                <label className='graveyard-length'>{this.state.playerGraveyard.length}</label>
+              </div>
             </div>
           </div>
         </div>

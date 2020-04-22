@@ -254,12 +254,13 @@ html, body, .app, #app>div, #root, .main-container {
 .player-container{
   height: 40%;
   display: flex;
-  background-color: red;
+  flex-direction: column;
+  background-color: green;
 }
 
 .player-stats{
-  height: 80%;
-  width: 17%;
+  height: 10%;
+  width: 80%;
   background-color: green;
   margin:auto;
   display: flex;
@@ -267,16 +268,29 @@ html, body, .app, #app>div, #root, .main-container {
 
 .player-hp{
   margin: auto;
-  background-color: red;
-  height: 80%;
-  width: 80%;
-  border-radius: 50%;
-  display: flex;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  text-align: center;
 }
 
 .player-blood{
+  width: 100%;
+  background-color: red;
+  display:flex;
+  height:100%
+}
+
+.hp{
   margin: auto;
   font-weight: bold;
+  color: black;
+}
+
+.player-cards-container{
+  display: flex;
+  flex-direction: row;
+  height: 80%;
 }
 
 .player-hand{
