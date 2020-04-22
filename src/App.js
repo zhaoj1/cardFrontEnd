@@ -84,11 +84,12 @@ export default class App extends React.Component{
   }
 
   nextEnemy = () => {
-    this.state.currentEnemy == this.state.enemies.length ?
-      this.setState({modalContents: 'congrats'},()=>{console.log('ok')})
-      :
       this.setState({currentEnemy: this.state.currentEnemy + 1})
       this.closeModal();
+  }
+
+  gameCompleted = () => {
+    this.setState({modalContents: 'congrats'})
   }
 
   setCardToDeck = (card) => {
@@ -126,10 +127,10 @@ export default class App extends React.Component{
       <div className='main-container'>
         <Modal
           isOpen={this.state.modal}
-          onRequestClose={this.mainMenu}
+          // onRequestClose={this.mainMenu} 
           style={customStyles}
         >
-          <Confirmation mainMenu={this.mainMenu} nextFight={this.nextFight} closeModal={this.closeModal} modalContents={this.state.modalContents} nextEnemy={this.nextEnemy} />
+          <Confirmation mainMenu={this.mainMenu} closeModal={this.closeModal} modalContents={this.state.modalContents} nextEnemy={this.nextEnemy} gameCompleted={this.gameCompleted} currentEnemy={this.state.currentEnemy} enemies={this.state.enemies} />
         </Modal>
         {this.state.page == 'main' ?
           <MainMenu editDeck={this.editDeck} />
