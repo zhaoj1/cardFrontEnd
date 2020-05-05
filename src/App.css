@@ -2,6 +2,10 @@ html, body, .app, #app>div, #root, .main-container {
   height: 100%;
 }
 
+button:hover{
+  background-color: slategray;
+}
+
 .mainMenu{
   display: flex;
   height: 100%;
@@ -43,7 +47,6 @@ html, body, .app, #app>div, #root, .main-container {
 
 .cards-container{
   margin: auto;
-  /* background-color: red; */
   height: 25%;
   display:flex;
   width: 100%;
@@ -93,8 +96,7 @@ html, body, .app, #app>div, #root, .main-container {
 
 .selected-card{
   height: 100%;
-  background-color: green;
-  outline: solid;
+  filter: hue-rotate(45deg);
   width: 18%;
   margin-right: 1%;
   text-align: center;
@@ -150,7 +152,6 @@ html, body, .app, #app>div, #root, .main-container {
 .edit-card-right{
   height: 55%;
   width: 20%;
-  /* background-color:green; */
   text-align: center;
   background-image: url('./images/front.png');
   background-position: center;
@@ -161,7 +162,6 @@ html, body, .app, #app>div, #root, .main-container {
 
 .deck-editor{
   margin: auto;
-  /* background-color: blue; */
   height: 25%;
   display:flex;
   margin-top: 2%;
@@ -184,12 +184,10 @@ html, body, .app, #app>div, #root, .main-container {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  /* background-color: black; */
 }
 
 .detail-container{
   width: 15%;
-  /* background-color: blue; */
   background-image: url('./images/front.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -199,7 +197,6 @@ html, body, .app, #app>div, #root, .main-container {
 
 .game-mat-right{
   width: 30%;
-  /* background-color: blue; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -215,15 +212,14 @@ html, body, .app, #app>div, #root, .main-container {
 .graveyard-details{
   height: 30%;
   width: 100%;
-  /* background-color: green; */
   display: flex;
   margin: auto;
+  border: solid;
 }
 
 .graveyardCard{
-  /* background-color: white; */
-  width: 20%;
-  margin-right: 1%;
+  width: 18%;
+  margin: 0 1% 0 1%;
   background-image: url('./images/front.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -233,7 +229,6 @@ html, body, .app, #app>div, #root, .main-container {
 
 .enemy-data{
   height: 100%;
-  /* background-color: blue; */
   width: 60%;
 }
 
@@ -241,13 +236,11 @@ html, body, .app, #app>div, #root, .main-container {
   margin-top:1%;
   height: 70%;
   display: flex;
-  /* background-color: red; */
   justify-content: center;
   width: 70%;
 }
 
 .enemy-img{
-  /* background-color: red; */
   height: 40%;
   width: 30%;
   margin: auto;
@@ -257,7 +250,6 @@ html, body, .app, #app>div, #root, .main-container {
 }
 
 .enemy-stats{
-  /* background-color: green; */
   height: 40%;
   width: 80%;
   margin: auto;
@@ -266,7 +258,6 @@ html, body, .app, #app>div, #root, .main-container {
 
 .enemy-hp{
   background-color: black;
-  /* height: 10px; */
   width: 50%;
   margin: auto;
   margin-bottom: 2%;
@@ -276,6 +267,7 @@ html, body, .app, #app>div, #root, .main-container {
   background-color: red;
   font-weight: bold;
   padding-top: 5px;
+  transition: width 0.15s;
 }
 
 .enemy-deck{
@@ -293,13 +285,11 @@ html, body, .app, #app>div, #root, .main-container {
   height: 40%;
   display: flex;
   flex-direction: column;
-  /* background-color: green; */
 }
 
 .player-stats{
   height: 10%;
   width: 80%;
-  /* background-color: green; */
   margin:auto;
   display: flex;
 }
@@ -313,10 +303,10 @@ html, body, .app, #app>div, #root, .main-container {
 }
 
 .player-blood{
-  width: 100%;
   background-color: red;
   display:flex;
-  height:100%
+  height:100%;
+  transition: width 0.15s;
 }
 
 .hp{
@@ -334,7 +324,6 @@ html, body, .app, #app>div, #root, .main-container {
 .player-hand{
   height: 80%;
   width: 65%;
-  /* background-color: blue; */
   margin:auto;
   display: flex;
   text-align: center;
@@ -343,7 +332,6 @@ html, body, .app, #app>div, #root, .main-container {
 .graveyard-container{
   height: 80%;
   width: 13%;
-  /* background-color: white; */
   margin:auto;
   display:flex; 
   align-items: center;
@@ -352,7 +340,6 @@ html, body, .app, #app>div, #root, .main-container {
 .graveyard{
   height: 100%;
   width: 80%;
-  /* background-color: black; */
   margin:auto;
   color: white;
   text-align: center;
