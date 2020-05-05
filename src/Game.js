@@ -2,6 +2,9 @@ import React from 'react';
 import Card from './Card';
 import Details from './Details';
 import GraveyardCard from './GraveyardCard';
+import slime from './images/slime.png'
+import kobold from './images/kobold.png'
+import ogre from './images/ogre.png'
 
 var playerHand, enemyHand, enemyCard
 
@@ -163,7 +166,21 @@ export default class Game extends React.Component{
             <Details selectedCard={this.state.playerHand[this.state.selectedCardIndex]} />
           </div>
           <div className='enemy-data'>
-            <div className='enemy-img'>enemy img</div>
+            <div className='enemy-img'
+              style={{
+                'background-image':
+                  this.props.currentEnemy == 1 ?
+                    `url(${slime})`
+                    :
+                    this.props.currentEnemy == 2 ?
+                      `url(${kobold})`
+                      :
+                      this.props.currentEnemy == 3 ?
+                        `url(${ogre})`
+                        :
+                        null
+              }}
+            ></div>
             <p>{this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name}</p>
             <div className='enemy-stats'>
               <div className='enemy-hp'>

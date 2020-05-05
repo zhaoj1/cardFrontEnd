@@ -2,8 +2,8 @@ import React from 'react';
 
 function MainMenu(props){
   return(
-    <div>
-      <button onClick={props.editDeck}>Begin</button>
+    <div className='mainMenu'>
+      <button className='mainMenuButton' onClick={props.editDeck}>Begin</button>
     </div>
   )
 }

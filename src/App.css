@@ -2,6 +2,16 @@ html, body, .app, #app>div, #root, .main-container {
   height: 100%;
 }
 
+.mainMenu{
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.mainMenuButton{
+  margin: auto;
+}
+
 .modal{
   text-align: center;
 }
@@ -12,7 +22,7 @@ html, body, .app, #app>div, #root, .main-container {
 
 .cards-container{
   margin: auto;
-  background-color: red;
+  /* background-color: red; */
   height: 25%;
   display:flex;
 }
@@ -118,7 +128,7 @@ html, body, .app, #app>div, #root, .main-container {
 .edit-card-right{
   height: 55%;
   width: 20%;
-  background-color:green;
+  /* background-color:green; */
   text-align: center;
   background-image: url('./images/front.png');
   background-position: center;
@@ -129,7 +139,7 @@ html, body, .app, #app>div, #root, .main-container {
 
 .deck-editor{
   margin: auto;
-  background-color: blue;
+  /* background-color: blue; */
   height: 25%;
   display:flex;
   margin-top: 2%;
@@ -152,12 +162,12 @@ html, body, .app, #app>div, #root, .main-container {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  background-color: black;
+  /* background-color: black; */
 }
 
 .detail-container{
   width: 15%;
-  background-color: blue;
+  /* background-color: blue; */
   background-image: url('./images/front.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -167,7 +177,7 @@ html, body, .app, #app>div, #root, .main-container {
 
 .game-mat-right{
   width: 30%;
-  background-color: blue;
+  /* background-color: blue; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -183,13 +193,13 @@ html, body, .app, #app>div, #root, .main-container {
 .graveyard-details{
   height: 30%;
   width: 100%;
-  background-color: green;
+  /* background-color: green; */
   display: flex;
   margin: auto;
 }
 
 .graveyardCard{
-  background-color: white;
+  /* background-color: white; */
   width: 20%;
   margin-right: 1%;
   background-image: url('./images/front.png');
@@ -201,27 +211,30 @@ html, body, .app, #app>div, #root, .main-container {
 
 .enemy-data{
   height: 100%;
-  background-color: blue;
+  /* background-color: blue; */
   width: 50%;
 }
 
 .enemy-hand{
   height: 70%;
   display: flex;
-  background-color: red;
+  /* background-color: red; */
   justify-content: center;
   width: 70%;
 }
 
 .enemy-img{
-  background-color: red;
+  /* background-color: red; */
   height: 40%;
   width: 30%;
   margin: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .enemy-stats{
-  background-color: green;
+  /* background-color: green; */
   height: 40%;
   width: 80%;
   margin: auto;
@@ -255,13 +268,13 @@ html, body, .app, #app>div, #root, .main-container {
   height: 40%;
   display: flex;
   flex-direction: column;
-  background-color: green;
+  /* background-color: green; */
 }
 
 .player-stats{
   height: 10%;
   width: 80%;
-  background-color: green;
+  /* background-color: green; */
   margin:auto;
   display: flex;
 }
@@ -296,7 +309,7 @@ html, body, .app, #app>div, #root, .main-container {
 .player-hand{
   height: 80%;
   width: 65%;
-  background-color: blue;
+  /* background-color: blue; */
   margin:auto;
   display: flex;
   text-align: center;
@@ -305,7 +318,7 @@ html, body, .app, #app>div, #root, .main-container {
 .graveyard-container{
   height: 80%;
   width: 13%;
-  background-color: white;
+  /* background-color: white; */
   margin:auto;
   display:flex; 
   align-items: center;
@@ -314,7 +327,7 @@ html, body, .app, #app>div, #root, .main-container {
 .graveyard{
   height: 100%;
   width: 80%;
-  background-color: black;
+  /* background-color: black; */
   margin:auto;
   color: white;
   text-align: center;
