@@ -15,7 +15,9 @@ class EditDeck extends React.Component{
   render(){
     return(
       <div className='edit-container'>
-        <button onClick={this.props.startGame}>Start Game</button>
+        <div className='editDeckButton-container' >
+          <button className='editDeckButton' onClick={this.props.startGame}>Start Game</button>
+        </div>
         <div className='edit-card-container'>
           <div className='edit-card-left'>
             <div className='cards-container'>

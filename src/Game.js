@@ -186,7 +186,12 @@ export default class Game extends React.Component{
               <div className='enemy-hp'>
                 <div className='enemy-blood'
                   style={{
-                    'width':`${this.state.currentEnemyHP/this.state.currentEnemyMaxHP*100}%`
+                    'width':`${
+                      this.state.currentEnemyHP/this.state.currentEnemyMaxHP*100 > 100 ?
+                        100
+                        :
+                        this.state.currentEnemyHP/this.state.currentEnemyMaxHP*100
+                    }%`
                   }}
                 >{this.state.currentEnemyHP}/{this.state.currentEnemyMaxHP}</div>
               </div>
@@ -220,7 +225,12 @@ export default class Game extends React.Component{
             <div className='player-hp' >
               <div className='player-blood'
                 style={{
-                  'width ':`${this.state.playerHP/this.state.playerMaxHP*100}%`
+                  'width':`${
+                    this.state.playerHP/this.state.playerMaxHP*100 > 100 ?
+                      100
+                      :
+                      this.state.playerHP/this.state.playerMaxHP*100
+                  }%`
                 }}
               >
                 <p className='hp' >{this.state.playerHP}/{this.state.playerMaxHP}</p>

@@ -10,14 +10,35 @@ html, body, .app, #app>div, #root, .main-container {
 
 .mainMenuButton{
   margin: auto;
+  font-size: 25px;
+  border-radius: 10px;
+  padding: 0.5%;
 }
 
 .modal{
   text-align: center;
 }
 
+.editDeckButton-container{
+  width: 100%;  
+  text-align:center;
+  padding: 1% 0 1%;
+}
+
+.editDeckButton{
+  font-size: 25px;
+  border-radius: 10px;
+  padding: 0.5%;
+}
+
 .edit-container{
   height: 100%;
+}
+
+.available-cards{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 .cards-container{
@@ -25,6 +46,7 @@ html, body, .app, #app>div, #root, .main-container {
   /* background-color: red; */
   height: 25%;
   display:flex;
+  width: 100%;
 }
 
 .card{
@@ -212,10 +234,11 @@ html, body, .app, #app>div, #root, .main-container {
 .enemy-data{
   height: 100%;
   /* background-color: blue; */
-  width: 50%;
+  width: 60%;
 }
 
 .enemy-hand{
+  margin-top:1%;
   height: 70%;
   display: flex;
   /* background-color: red; */
@@ -242,7 +265,8 @@ html, body, .app, #app>div, #root, .main-container {
 }
 
 .enemy-hp{
-  background-color: white;
+  background-color: black;
+  /* height: 10px; */
   width: 50%;
   margin: auto;
   margin-bottom: 2%;
@@ -251,6 +275,7 @@ html, body, .app, #app>div, #root, .main-container {
 .enemy-blood{
   background-color: red;
   font-weight: bold;
+  padding-top: 5px;
 }
 
 .enemy-deck{
@@ -281,7 +306,7 @@ html, body, .app, #app>div, #root, .main-container {
 
 .player-hp{
   margin: auto;
-  background-color: white;
+  background-color: black;
   height: 100%;
   width: 100%;
   text-align: center;
