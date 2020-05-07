@@ -28,8 +28,14 @@ button:hover{
   text-align: center;
 }
 
+.modalBtnContainer{
+  display: flex;
+}
+
 .modalBtn{
   font-size: 15px;
+  border-radius: 5px;
+  margin: auto;
 }
 
 .editDeckButton-container{
@@ -50,8 +56,13 @@ button:hover{
 
 .edit-labels{
   color: white;
-  transform: rotate(-90deg);
-  transform-origin: bottom;
+  font-size: 20px;
+  word-spacing: 5px;
+  width:2%;
+  text-align: center;
+  writing-mode: vertical-rl;
+  text-orientation: sideways-right;
+  transform: rotate(180deg)
 }
 
 .available-cards{
@@ -265,6 +276,7 @@ button:hover{
   margin-bottom: 0;
   float: top;
   font-size: 15px;
+  border-radius: 5px;
 }
 
 .graveyard-details{

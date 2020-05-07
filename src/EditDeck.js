@@ -21,7 +21,7 @@ class EditDeck extends React.Component{
         <div className='edit-card-container'>
           <div className='edit-card-left'>
             <div className='cards-container'>
-              <p className='edit-labels'>Available</p>
+              <p className='edit-labels'>AVAILABLE CARDS</p>
               {this.props.cards.map(card => 
                 <>
                   <Card card={card} setSelectedCard={this.setSelectedCard} selectedCard={this.state.selectedCard} setCardToDeck={this.props.setCardToDeck} container='edit' />
@@ -29,6 +29,7 @@ class EditDeck extends React.Component{
               )}
             </div>
             <div className='deck-editor'>
+              <p className='edit-labels'>CURRENT DECK</p>
               {this.props.playerFullDeck.length == 0 ?
                 null
                 :
