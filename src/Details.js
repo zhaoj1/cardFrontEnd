@@ -11,8 +11,8 @@ function Details(props){
         null
         :
         <div className='card-face'>
-          <div className='selected-card-name'>{props.selectedCard.name}</div>
-          <div className='selected-card-img' style={{
+          <div className='detail-name'>{props.selectedCard.name}</div>
+          <div className='detail-img' style={{
                 'background-image':
                   props.selectedCard.effect_type == 'damage' && props.selectedCard.hp_effect == 1000 ?
                     `url(${big_dmg})`
@@ -28,7 +28,7 @@ function Details(props){
                           :
                           null
           }}></div>
-          <div className='selected-card-description'>{props.selectedCard.description}</div>
+          <div className='detail-description'>{props.selectedCard.description}</div>
         </div>
       }
     </div>

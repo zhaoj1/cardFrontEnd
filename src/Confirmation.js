@@ -7,13 +7,14 @@ function Confirmation(props){
         <>
           <p>Return to Main Menu</p>
           <p>Are You Sure?</p><br></br>
-          <button onClick={props.mainMenu}>OK</button><button onClick={props.closeModal}>CANCEL</button>
+          <button className='modalBtn' onClick={props.mainMenu}>OK</button><button className='modalBtn' onClick={props.closeModal}>CANCEL</button>
         </>
         :
         props.modalContents == 'victory' ?
           <>
             <p>Victory</p><br></br>
             <button 
+              className='modalBtn'
               onClick={
                 props.currentEnemy == props.enemies.length ?
                   props.gameCompleted
@@ -26,13 +27,13 @@ function Confirmation(props){
             <>
               <p>You Lost...</p>
               <p>Better luck next time!</p><br></br>
-              <button onClick={props.mainMenu} >Return to Main Menu</button>
+              <button className='modalBtn' onClick={props.mainMenu} >Return to Main Menu</button>
             </>
             :
             props.modalContents == 'congrats' ?
               <>
                 <p>Congrats! You've Won!</p><br></br>
-                <button onClick={props.mainMenu} >Return to Main Menu</button>
+                <button className='modalBtn' onClick={props.mainMenu} >Return to Main Menu</button>
               </>
               :
               null

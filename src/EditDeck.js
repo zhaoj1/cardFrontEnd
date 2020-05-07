@@ -21,6 +21,7 @@ class EditDeck extends React.Component{
         <div className='edit-card-container'>
           <div className='edit-card-left'>
             <div className='cards-container'>
+              <p className='edit-labels'>Available</p>
               {this.props.cards.map(card => 
                 <>
                   <Card card={card} setSelectedCard={this.setSelectedCard} selectedCard={this.state.selectedCard} setCardToDeck={this.props.setCardToDeck} container='edit' />
