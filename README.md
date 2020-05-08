@@ -20,7 +20,7 @@ Things in progress:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] health bars   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] enemy healthbar   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] convert player health to healthbar   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] main menu:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] main menu:    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] game name    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] instructions    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] game mat   
