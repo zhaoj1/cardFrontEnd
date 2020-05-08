@@ -2,7 +2,7 @@ html, body, .app, #app>div, #root, .main-container {
   height: 100%;
 }
 
-.main-container{
+html{
   background-color: rgb(25,25,80);
 }
 
@@ -124,6 +124,11 @@ button:hover{
   background-color: rgba(222,184,135, .5);
   border-radius: 5px;
   padding: 2px;
+  display: flex;
+}
+
+.card-description-text{
+  margin: auto;
 }
 
 .selected-card{
@@ -263,11 +268,12 @@ button:hover{
 }
 
 .game-mat-right{
-  width: 30%;
+  width: 35%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   border:solid;
+  background-color: rgb(75,75,130);
 }
 
 .main-menu-btn{
@@ -285,6 +291,17 @@ button:hover{
   display: flex;
   margin: auto;
   border: solid;
+  background-color: rgb(175,175,230)
+}
+
+.graveyard-labels{
+  font-size: 15px;
+  word-spacing: 5px;
+  width:7.5%;
+  text-align: center;
+  writing-mode: vertical-rl;
+  text-orientation: sideways-right;
+  transform: rotate(180deg);
 }
 
 .graveyardCard{
@@ -304,6 +321,7 @@ button:hover{
   height: 100%;
   width: 40%;
   border:solid;
+  background-color: rgb(75,75,130);
 }
 
 .enemy-hand{
@@ -362,6 +380,7 @@ button:hover{
   display: flex;
   flex-direction: column;
   border: solid;
+  background-color: rgb(75,75,130);
 }
 
 .player-stats{

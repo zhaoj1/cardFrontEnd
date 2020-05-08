@@ -64,7 +64,22 @@ function Card(props){
                           null
               }}>
           </div>
-          <div className='card-description'>{props.card.description}</div>
+          <div className='card-description'>
+            <p className='card-description-text' >
+              {props.card.effect_type == 'damage' ? 
+                '-'
+                :
+                props.card.effect_type == 'heal' ?
+                  '+'
+                  :
+                  props.card.effect_type == 'vamp' ?
+                    '+/-'
+                    :
+                    null
+              }
+              {props.card.hp_effect}
+            </p>
+          </div>
         </div>
       }
     </div>

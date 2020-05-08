@@ -208,15 +208,15 @@ export default class Game extends React.Component{
             </div>
           </div>
           <div className='game-mat-right'>
-            <button className='main-menu-btn' onClick={() => this.props.openModal('main menu')} >Main Menu</button><br></br>
-            enemy graveyard<br></br>
+            <button className='main-menu-btn' onClick={() => this.props.openModal('main menu')} >Main Menu</button>
             <div className='graveyard-details'>
+              <label className='graveyard-labels'>ENEMY GRAVEYARD</label>
               {this.state.currentEnemyGraveyard.map(card => {
                 return <GraveyardCard card={card} setSelectedCard={this.setSelectedCard} />
               })}
             </div>
-            player graveyard<br></br>
             <div className='graveyard-details'>
+              <label className='graveyard-labels'>PLAYER GRAVEYARD</label>
               {this.state.playerGraveyard.map(card => {
                 return <GraveyardCard card={card} setSelectedCard={this.setSelectedCard} />
               })}
