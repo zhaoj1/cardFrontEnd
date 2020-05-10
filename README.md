@@ -20,9 +20,9 @@ Things in progress:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] health bars   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] enemy healthbar   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] convert player health to healthbar   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] main menu:    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] game name    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] instructions    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] main menu:    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] game name    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] instructions    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] game mat   
 &nbsp;&nbsp;[] Backend - fix up card descriptions     
 &nbsp;&nbsp;[] limit to 1 bigdmg card    
