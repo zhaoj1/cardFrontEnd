@@ -101,10 +101,13 @@ export default class App extends React.Component{
     this.state.playerFullDeck.length == 5 ?
       alert('too many cards plz stop')
       :
-      deck = [...this.state.playerFullDeck, card].sort(function (a,b){return (a.id - b.id)})
-      this.setState({
-        playerFullDeck: deck
-      })
+      this.state.playerFullDeck[0] && this.state.playerFullDeck[0].id == 1 && card.id == 1?
+        alert('can only have 1 bigdmg card')
+        :
+        deck = [...this.state.playerFullDeck, card].sort(function (a,b){return (a.id - b.id)})
+        this.setState({
+          playerFullDeck: deck
+        })
   }
 
   removeCardFromDeck = (card) => {
