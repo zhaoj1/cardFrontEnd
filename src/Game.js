@@ -249,7 +249,12 @@ export default class Game extends React.Component{
                 return <Card card={card} setSelectedCard={this.setSelectedCard} selectedCardIndex={this.state.selectedCardIndex} container='player-hand' index={index} playCard={this.playCard} turn={this.state.turn} />
               })}
             </div>
-            <div className='graveyard-container' onClick={this.setPlayerDeck} >
+            <div className='graveyard-container' onClick={
+              this.state.playerGraveyard.length == 0 ?
+                null
+                :
+                this.setPlayerDeck
+            } >
               <div className=
                 {this.state.playerHand.length == 0 ?
                   'click-graveyard'
