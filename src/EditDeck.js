@@ -38,6 +38,14 @@ class EditDeck extends React.Component{
                 })
               }
             </div>
+            <div className='instructions'>
+              <p className='edit-labels'>INSTRUCTIONS</p>
+              <div className='instructions-text'>
+                <p>Click on a card to select and view details. Click on a selected card to add or remove from player hand.</p>
+                <p>Player Hand MUST contain 5 cards.</p>
+                <p>Limit to 1 -BIGDMG- card, other cards have no limit.</p>
+              </div>
+            </div>
           </div>
           <div className='edit-card-right'>
             <Details selectedCard={this.state.selectedCard} />

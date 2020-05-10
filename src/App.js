@@ -5,6 +5,7 @@ import EditDeck from './EditDeck'
 import './App.css'
 import Modal from 'react-modal'
 import Confirmation from './Confirmation'
+import Instructions from './Instructions'
 
 var deck
 
@@ -72,6 +73,10 @@ export default class App extends React.Component{
       :
       this.setState({page: 'game'})
   }
+
+  showInstructions = () => {
+    this.setState({page:'instructions'})
+  }
   
   mainMenu = () => {
     this.setState({
@@ -132,7 +137,7 @@ export default class App extends React.Component{
           <Confirmation mainMenu={this.mainMenu} closeModal={this.closeModal} modalContents={this.state.modalContents} nextEnemy={this.nextEnemy} gameCompleted={this.gameCompleted} currentEnemy={this.state.currentEnemy} enemies={this.state.enemies} />
         </Modal>
         {this.state.page == 'main' ?
-          <MainMenu editDeck={this.editDeck} />
+          <MainMenu editDeck={this.editDeck} showInstructions={this.showInstructions} />
           :
           this.state.page == 'edit' ?
             <EditDeck startGame={this.startGame} cards={this.state.cards} setCardToDeck={this.setCardToDeck} playerFullDeck={this.state.playerFullDeck} removeCardFromDeck={this.removeCardFromDeck} />
@@ -140,7 +145,10 @@ export default class App extends React.Component{
             this.state.page == 'game' ?
               <Game mainMenu={this.mainMenu} enemies={this.state.enemies} cards={this.state.cards} playerFullDeck={this.state.playerFullDeck} currentEnemy={this.state.currentEnemy} gameWon={this.gameWon} openModal={this.openModal} />
               :
-              null
+              this.state.page == 'instructions' ?
+                <Instructions mainMenu={this.mainMenu} />
+                :
+                null
         }
       </div>
     )

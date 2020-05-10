@@ -17,11 +17,38 @@ button:hover{
   width: 100%;
 }
 
-.mainMenuButton{
+.title-screen{
   margin: auto;
+  text-align: center;
+}
+
+.title{
+  color: white;
+  font-variant: small-caps;
+  font-size: 50px;
+}
+
+.mainMenuButton{
   font-size: 25px;
   border-radius: 10px;
-  padding: 0.5%;
+  padding: 2%;
+  margin-bottom: 10px;
+}
+
+.game-instructions{
+  display: flex;
+}
+
+.game-instructions-text{
+  color: whitesmoke;
+  font-size: 20px;
+  margin: auto;
+}
+
+.returnBtn{
+  font-size: 15px;
+  border-radius: 5px;
+  margin: auto;
 }
 
 .modal{
@@ -83,15 +110,21 @@ button:hover{
   width: 15%;
   margin-right: 1%;
   text-align: center;
-  /* background-image: url('./images/front.png'); */
   border: solid 5px;
   background-color: rgb(145,70,0);
   border-radius: 5%;
-  /* background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain; */
   display: flex;
 } 
+
+.card:hover{
+  height: 100%;
+  border: solid green 5px;
+  border-radius: 5%;
+  width: 15%;
+  margin-right: 1%;
+  text-align: center;
+  display: flex;
+}
 
 .card-face{
   margin:auto;
@@ -133,18 +166,12 @@ button:hover{
 
 .selected-card{
   height: 100%;
-  /* filter: hue-rotate(45deg); */
-  /* background-color: yellow; */
   border: solid green 5px;
   background-color: rgb(245,170,0);
   border-radius: 5%;
   width: 15%;
   margin-right: 1%;
   text-align: center;
-  /* background-image: url('./images/front.png'); */
-  /* background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain; */
   display: flex;
 } 
 
@@ -194,10 +221,6 @@ button:hover{
   height: 55%;
   width: 20%;
   text-align: center;
-  /* background-image: url('./images/front.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain; */
   border: solid 5px;
   background-color: rgb(145,70,0);
   border-radius: 5%;
@@ -211,6 +234,16 @@ button:hover{
   margin-top: 2%;
 }
 
+.instructions{
+  display: flex;
+  margin-top: 4%;
+}
+
+.instructions-text{
+  color: whitesmoke;
+  font-size: 20px;
+}
+
 .details{
   height: 100%;
   width: 100%;
@@ -221,7 +254,6 @@ button:hover{
 }
 
 .detail-name{
-  /* height: 10%; */
   background-color: rgba(222,184,135, .5);
   border-radius: 5px;
   font-size: 20px;
@@ -257,10 +289,6 @@ button:hover{
 
 .detail-container{
   width: 18%;
-  /* background-image: url('./images/front.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain; */
   border: solid 5px;
   background-color: rgb(145,70,0);
   border-radius: 5%;
@@ -307,10 +335,6 @@ button:hover{
 .graveyardCard{
   width: 15%;
   margin: 1%;
-  /* background-image: url('./images/front.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain; */
   border: solid 3px;
   background-color: rgb(145,70,0);
   border-radius: 5%;
@@ -318,7 +342,6 @@ button:hover{
 }
 
 .enemy-data{
-  height: 100%;
   width: 40%;
   border:solid;
   background-color: rgb(75,75,130);
@@ -374,7 +397,7 @@ button:hover{
 }
 
 .player-container{
-  width:96%;
+  width: 97.7%;
   height: 40%;
   margin: auto;
   display: flex;
@@ -447,10 +470,13 @@ button:hover{
   display: flex;
 }
 
+.graveyard:hover{
+  filter: hue-rotate(-90deg)
+}
+
 .click-graveyard{
   height: 100%;
   width: 80%;
-  background-color: green;
   color: white;
   margin:auto;
   background-image: url('./images/player_back.png');
@@ -458,4 +484,11 @@ button:hover{
   background-repeat: no-repeat;
   background-size: contain;
   display: flex;
+  animation: blinker 2s infinite;
+}
+
+@keyframes blinker {
+  50% {
+    filter: contrast(300%) hue-rotate(-90deg)
+  }
 }
