@@ -25,5 +25,5 @@ Things in progress:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] instructions    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] game mat   
 &nbsp;&nbsp;[] Backend - fix up card descriptions     
-&nbsp;&nbsp;[] limit to 1 bigdmg card    
+&nbsp;&nbsp;[X] limit to 1 bigdmg card    
 &nbsp;&nbsp;[] do not allow refresh when graveyard is 0
