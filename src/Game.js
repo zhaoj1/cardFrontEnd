@@ -144,7 +144,8 @@ export default class Game extends React.Component{
     this.setState({
       playerHand: [...this.props.playerFullDeck],
       playerGraveyard: [],
-      turn: 'enemy'
+      turn: 'enemy',
+      selectedCardIndex: null
     }, () => {setTimeout(() => this.playEnemyCard(), 200)})
   }
 

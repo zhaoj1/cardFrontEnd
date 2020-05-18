@@ -114,16 +114,11 @@ button:hover{
   background-color: rgb(145,70,0);
   border-radius: 5%;
   display: flex;
+  transition: all .5s ease-in-out;
 } 
 
 .card:hover{
-  height: 100%;
-  border: solid green 5px;
-  border-radius: 5%;
-  width: 15%;
-  margin-right: 1%;
-  text-align: center;
-  display: flex;
+  transform: scale(1.2)
 }
 
 .card-face{
@@ -150,6 +145,9 @@ button:hover{
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  border: solid black 2px;
+  border-radius: 5%;
+  background-color: rgb(128, 130, 132)
 }
 
 .card-description{
@@ -166,13 +164,17 @@ button:hover{
 
 .selected-card{
   height: 100%;
-  border: solid green 5px;
-  background-color: rgb(245,170,0);
+  border: solid yellow 5px;
+  background-color: rgb(145,70,0);
   border-radius: 5%;
   width: 15%;
   margin-right: 1%;
   text-align: center;
   display: flex;
+} 
+
+.selected-card:hover{
+  border: solid green 5px;
 } 
 
 .selected-card-name{
@@ -199,11 +201,15 @@ button:hover{
 .card-back{
   height: 100%;
   width: 20%;
-  margin-right: 1%;
-  background-image: url('./images/enemy_back.png');
+  margin: 0 1% 0 1%;
+  background-image: url('./images/cardBack.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  border: solid black 2px;
+  border-radius: 5px;
+  width: 20%;
+  background-color:rgb(150,30,30);
 }
 
 .edit-card-container{
@@ -264,6 +270,9 @@ button:hover{
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  border: solid black 3px;
+  border-radius: 5%;
+  background-color: slategray
 }
 
 .detail-description{
@@ -352,7 +361,7 @@ button:hover{
   height: 70%;
   display: flex;
   justify-content: center;
-  width: 70%;
+  width: 90%;
 }
 
 .enemy-img{
@@ -463,15 +472,19 @@ button:hover{
   color: white;
   text-align: center;
   display: flex;
-  background-image: url('./images/player_back.png');
+  background-image: url('./images/cardBack.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   display: flex;
+  transition: all .5s ease-in-out;
+  border: solid black 5px;
+  border-radius: 5%;
+  background-color: rgb(30,30,180)
 }
 
 .graveyard:hover{
-  filter: hue-rotate(-90deg)
+  transform: scale(1.1)
 }
 
 .click-graveyard{
@@ -479,16 +492,16 @@ button:hover{
   width: 80%;
   color: white;
   margin:auto;
-  background-image: url('./images/player_back.png');
+  background-image: url('./images/cardBack.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   display: flex;
-  animation: blinker 2s infinite;
+  animation: blinker 1s infinite;
 }
 
 @keyframes blinker {
   50% {
-    filter: contrast(300%) hue-rotate(-90deg)
+    transform: scale(1.1)
   }
 }
