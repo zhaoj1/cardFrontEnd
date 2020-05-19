@@ -1,8 +1,8 @@
 import React from 'react';
-import big_dmg from './images/big_dmg.png'
+import big_dmg from './images/big_dmgV2.png'
 import lil_dmg from './images/lil_dmgV2.png'
-import heal from './images/heal.png'
-import vamp from './images/vamp.png'
+import heal from './images/healV2.png'
+import vamp from './images/vampV2.png'
 
 function Details(props){
   return(

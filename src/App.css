@@ -3,7 +3,7 @@ html, body, .app, #app>div, #root, .main-container {
 }
 
 html{
-  background-color: rgb(25,25,80);
+  background-color: rgba(50,50,100)
 }
 
 button:hover{
@@ -85,7 +85,7 @@ button:hover{
   color: white;
   font-size: 20px;
   word-spacing: 5px;
-  width:2%;
+  width:3%;
   text-align: center;
   writing-mode: vertical-rl;
   text-orientation: sideways-right;
@@ -206,7 +206,7 @@ button:hover{
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  border: solid black 2px;
+  border: solid black 3px;
   border-radius: 5px;
   width: 20%;
   background-color:rgb(150,30,30);
@@ -266,7 +266,7 @@ button:hover{
 }
 
 .detail-img{
-  height: 10rem;
+  height: 6rem;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -284,6 +284,10 @@ button:hover{
 
 .game-screen{
   height: 100%;
+  background-image: url('./images/bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover  ;
 }
 
 .game-mat{
@@ -310,7 +314,7 @@ button:hover{
   flex-direction: column;
   justify-content: space-around;
   border:solid;
-  background-color: rgb(75,75,130);
+  background-color: rgba(75,75,130,0.8);
 }
 
 .main-menu-btn{
@@ -353,7 +357,7 @@ button:hover{
 .enemy-data{
   width: 40%;
   border:solid;
-  background-color: rgb(75,75,130);
+  background-color: rgba(75,75,130,0.8);
 }
 
 .enemy-hand{
@@ -412,7 +416,7 @@ button:hover{
   display: flex;
   flex-direction: column;
   border: solid;
-  background-color: rgb(75,75,130);
+  background-color: rgba(75,75,130,0.8);
 }
 
 .player-stats{
@@ -498,6 +502,13 @@ button:hover{
   background-size: contain;
   display: flex;
   animation: blinker 1s infinite;
+  border: solid black 5px;
+  border-radius: 5%;
+  background-color: rgb(30,30,180)
+}
+
+.click-graveyard:hover{
+  border: solid yellow 5px;
 }
 
 @keyframes blinker {

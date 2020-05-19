@@ -163,7 +163,12 @@ export default class Game extends React.Component{
     return(
       <div className='game-screen'>
         <div className='game-mat'>
-          <div className='detail-container'>
+          <div className='detail-container' style={{'visibility':
+            this.state.selectedCardIndex == null ? 
+              'hidden'
+              :
+              'visible'
+          }}>
             <Details selectedCard={this.state.playerHand[this.state.selectedCardIndex]} />
           </div>
           <div className='enemy-data'>
