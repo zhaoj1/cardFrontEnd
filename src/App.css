@@ -3,7 +3,7 @@ html, body, .app, #app>div, #root, .main-container {
 }
 
 html{
-  background-color: rgba(50,50,100)
+  background-color: rgba(45,45,70);
 }
 
 button:hover{
@@ -140,7 +140,7 @@ button:hover{
 }
 
 .card-img{
-  height: 4rem;
+  height: 7rem;
   margin-bottom:15%;
   background-position: center;
   background-repeat: no-repeat;
@@ -394,6 +394,7 @@ button:hover{
 .enemy-blood{
   background-color: red;
   font-weight: bold;
+  color: rgb(200, 200, 200);
   padding-top: 5px;
   transition: width 0.15s;
 }
@@ -444,7 +445,7 @@ button:hover{
 .hp{
   margin: auto;
   font-weight: bold;
-  color: black;
+  color: rgb(200, 200, 200);
 }
 
 .player-cards-container{
