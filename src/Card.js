@@ -45,7 +45,6 @@ function Card(props){
         null
         :
         <div className='card-face'>
-          {/* <div className='card-name'>{props.card.name}</div> */}
           <div className='card-img' style={{
                 'background-image':
                   props.card.effect_type == 'damage' && props.card.hp_effect == 1000 ?
@@ -63,22 +62,6 @@ function Card(props){
                           null
               }}>
           </div>
-          {/* <div className='card-description'>
-            <p className='card-description-text' >
-              {props.card.effect_type == 'damage' ? 
-                '-'
-                :
-                props.card.effect_type == 'heal' ?
-                  '+'
-                  :
-                  props.card.effect_type == 'vamp' ?
-                    '+/-'
-                    :
-                    null
-              }
-              {props.card.hp_effect}
-            </p>
-          </div> */}
         </div>
       }
     </div>
