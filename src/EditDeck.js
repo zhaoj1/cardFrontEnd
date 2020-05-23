@@ -5,7 +5,8 @@ import Details from './Details'
 class EditDeck extends React.Component{
 
   state = {
-    selectedCard: {}
+    selectedCard: {},
+    errorMsg: null
   }
 
   setSelectedCard = (card) => {
