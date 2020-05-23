@@ -89,7 +89,6 @@ export default class Game extends React.Component{
         turn: 'enemy'
       }, () => {this.fightEnd();})
     }
-    
   }
 
   playEnemyCard = () => {
@@ -202,7 +201,8 @@ export default class Game extends React.Component{
                           this.state.currentEnemyHP/this.state.currentEnemyMaxHP*100
                     }%`
                   }}
-                >{this.state.currentEnemyHP}/{this.state.currentEnemyMaxHP}</div>
+                ></div>
+                <div className='hp-num'>{this.state.currentEnemyHP}/{this.state.currentEnemyMaxHP}</div>
               </div>
               <div className='enemy-deck'>
                 <div className='enemy-hand'>
@@ -244,9 +244,8 @@ export default class Game extends React.Component{
                         this.state.playerHP/this.state.playerMaxHP*100
                   }%`
                 }}
-              >
-                <p className='hp' >{this.state.playerHP}/{this.state.playerMaxHP}</p>
-              </div>
+              ></div>
+              <div className='hp-num' >{this.state.playerHP}/{this.state.playerMaxHP}</div>
             </div>
           </div>
           <div className='player-cards-container' >

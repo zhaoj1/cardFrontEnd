@@ -24,12 +24,13 @@ Things in progress:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] instructions    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] game mat   
 &nbsp;&nbsp;[] Error messages (move away from alerts)     
+&nbsp;&nbsp;[] victory/lose messages    
 &nbsp;&nbsp;[] Backend:     
 &nbsp;&nbsp;&nbsp;&nbsp;[] fix up card descriptions     
 &nbsp;&nbsp;&nbsp;&nbsp;[] add more cards   
-&nbsp;&nbsp;&nbsp;&nbsp;[] add more mechanics          
+&nbsp;&nbsp;&nbsp;&nbsp;[] add more mechanics:          
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] enemy specials   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] adjust deck between fights?     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] mana system?      
 &nbsp;&nbsp;[X] limit to 1 bigdmg card    
-&nbsp;&nbsp;[X] do not allow refresh when graveyard is 0
+&nbsp;&nbsp;[X] do not allow refresh when graveyard is 0  
