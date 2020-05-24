@@ -14,10 +14,10 @@ function Details(props){
           <div className='detail-name'>{props.selectedCard.name}</div>
           <div className='detail-img' style={{
                 'background-image':
-                  props.selectedCard.effect_type == 'damage' && props.selectedCard.hp_effect == 1000 ?
+                  props.selectedCard.effect_type == 'damage' && props.selectedCard.effect == 10 ?
                     `url(${big_dmg})`
                     :
-                    props.selectedCard.effect_type == 'damage' && props.selectedCard.hp_effect == 5 ?
+                    props.selectedCard.effect_type == 'damage' && props.selectedCard.effect == 5 ?
                       `url(${lil_dmg})`
                       :
                       props.selectedCard.effect_type == 'heal' ?

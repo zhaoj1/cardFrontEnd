@@ -65,7 +65,7 @@ export default class Game extends React.Component{
     playerHand.splice(this.state.selectedCardIndex, 1)
     if(card.effect_type == 'damage'){
       this.setState({
-        currentEnemyHP: this.state.currentEnemyHP - card.hp_effect,
+        currentEnemyHP: this.state.currentEnemyHP - card.effect,
         playerHand: playerHand,
         selectedCardIndex: null,
         playerGraveyard: [...this.state.playerGraveyard, card],
@@ -73,7 +73,7 @@ export default class Game extends React.Component{
       }, () => {this.fightEnd();})
     }else if(card.effect_type == 'heal'){
       this.setState({
-        playerHP: this.state.playerHP + card.hp_effect,
+        playerHP: this.state.playerHP + card.effect,
         playerHand: playerHand,
         selectedCardIndex: null,
         playerGraveyard: [...this.state.playerGraveyard, card],
@@ -81,8 +81,8 @@ export default class Game extends React.Component{
       }, () => {this.fightEnd();})
     }else if(card.effect_type == 'vamp'){
       this.setState({
-        playerHP: this.state.playerHP + card.hp_effect,
-        currentEnemyHP: this.state.currentEnemyHP - card.hp_effect,
+        playerHP: this.state.playerHP + card.effect,
+        currentEnemyHP: this.state.currentEnemyHP - card.effect,
         playerHand: playerHand,
         selectedCardIndex: null,
         playerGraveyard: [...this.state.playerGraveyard, card],
@@ -100,22 +100,22 @@ export default class Game extends React.Component{
       enemyCard = enemyHand.splice(Math.random(0, enemyHand.length - 1), 1)[0]
       if(enemyCard.effect_type == 'damage'){
         this.setState({
-          playerHP: this.state.playerHP - enemyCard.hp_effect,
+          playerHP: this.state.playerHP - enemyCard.effect,
           currentEnemyHand: enemyHand,
           currentEnemyGraveyard: [...this.state.currentEnemyGraveyard, enemyCard],
           turn: 'player'
         })
       }else if(enemyCard.effect_type == 'heal'){
         this.setState({
-          currentEnemyHP: this.state.currentEnemyHP + enemyCard.hp_effect,
+          currentEnemyHP: this.state.currentEnemyHP + enemyCard.effect,
           currentEnemyHand: enemyHand,
           currentEnemyGraveyard: [...this.state.currentEnemyGraveyard, enemyCard],
           turn: 'player'
         })
       }else if(enemyCard.effect_type == 'vamp'){
         this.setState({
-          playerHP: this.state.playerHP - enemyCard.hp_effect,
-          currentEnemyHP: this.state.currentEnemyHP + enemyCard.hp_effect,
+          playerHP: this.state.playerHP - enemyCard.effect,
+          currentEnemyHP: this.state.currentEnemyHP + enemyCard.effect,
           currentEnemyHand: enemyHand,
           currentEnemyGraveyard: [...this.state.currentEnemyGraveyard, enemyCard],
           turn: 'player'

@@ -47,10 +47,10 @@ function Card(props){
         <div className='card-face'>
           <div className='card-img' style={{
                 'background-image':
-                  props.card.effect_type == 'damage' && props.card.hp_effect == 1000 ?
+                  props.card.effect_type == 'damage' && props.card.effect == 10 ?
                     `url(${big_dmg})`
                     :
-                    props.card.effect_type == 'damage' && props.card.hp_effect == 5 ?
+                    props.card.effect_type == 'damage' && props.card.effect == 5 ?
                       `url(${lil_dmg})`
                       :
                       props.card.effect_type == 'heal' ?
