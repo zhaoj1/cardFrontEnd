@@ -35,7 +35,9 @@ export default class App extends React.Component{
       page: 'main',
       playerFullDeck:[],
       modal: false,
-      modalContents: ''
+      modalContents: '',
+      error: false,
+      errorMsg: ''
     }
   }
 
@@ -70,9 +72,16 @@ export default class App extends React.Component{
 
   startGame = () => {
     this.state.playerFullDeck.length !== 5 ? 
-      alert('deck needs to have 5 cards')
+      this.setState({
+        error: true,
+        errorMsg: 'Deck needs to have 5 cards'
+      })
       :
-      this.setState({page: 'game'})
+      this.setState({
+        page: 'game',
+        error: false,
+        errorMsg: ''
+      })
   }
 
   showInstructions = () => {
@@ -100,10 +109,16 @@ export default class App extends React.Component{
 
   setCardToDeck = (card) => {
     this.state.playerFullDeck.length == 5 ?
-      alert('too many cards plz stop')
+      this.setState({
+        error: true,
+        errorMsg: 'Deck cannot exceed 5 cards'
+      })
       :
       this.state.playerFullDeck[0] && this.state.playerFullDeck[0].id == 1 && card.id == 1?
-        alert('can only have 1 bigdmg card')
+        this.setState({
+          error: true,
+          errorMsg: 'Deck can only have a single special card'
+        })
         :
         deck = [...this.state.playerFullDeck, card].sort(function (a,b){return (a.id - b.id)})
         this.setState({
@@ -144,7 +159,7 @@ export default class App extends React.Component{
           <MainMenu editDeck={this.editDeck} showInstructions={this.showInstructions} />
           :
           this.state.page == 'edit' ?
-            <EditDeck startGame={this.startGame} cards={this.state.cards} setCardToDeck={this.setCardToDeck} playerFullDeck={this.state.playerFullDeck} removeCardFromDeck={this.removeCardFromDeck} />
+            <EditDeck startGame={this.startGame} cards={this.state.cards} setCardToDeck={this.setCardToDeck} playerFullDeck={this.state.playerFullDeck} removeCardFromDeck={this.removeCardFromDeck} error={this.state.error} errorMsg={this.state.errorMsg} />
             :
             this.state.page == 'game' ?
               <Game mainMenu={this.mainMenu} enemies={this.state.enemies} cards={this.state.cards} playerFullDeck={this.state.playerFullDeck} currentEnemy={this.state.currentEnemy} gameWon={this.gameWon} openModal={this.openModal} />

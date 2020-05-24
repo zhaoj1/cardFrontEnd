@@ -35,6 +35,13 @@ button:hover{
   margin-bottom: 10px;
 }
 
+.error{
+  font-weight: bold;
+  color: red;
+  font-size: 25px;
+  text-align: center;
+}
+
 .game-instructions{
   display: flex;
 }

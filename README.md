@@ -23,11 +23,11 @@ Things in progress:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] game name    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] instructions    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] game mat   
-&nbsp;&nbsp;[] Error messages (move away from alerts)     
-&nbsp;&nbsp;[] victory/lose images    
+&nbsp;&nbsp;[X] Error messages (move away from alerts)     
+&nbsp;&nbsp;[] victory/lose messages/images    
 &nbsp;&nbsp;[] Backend:     
 &nbsp;&nbsp;&nbsp;&nbsp;[] fix up card descriptions     
-&nbsp;&nbsp;&nbsp;&nbsp;[] add more cards   
+&nbsp;&nbsp;&nbsp;&nbsp;[] add more cards:   
 &nbsp;&nbsp;&nbsp;&nbsp;[] add more mechanics:          
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] special cards (limit to 1)   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] adjust deck between fights?     
