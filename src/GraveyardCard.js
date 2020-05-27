@@ -8,7 +8,7 @@ function GraveyardCard(props){
 
   const cardStyle = {
     'background-image':
-      props.card.effect_type == 'damage' && props.card.effect == 10 ?
+      props.card.effect_type == 'damage' && props.card.effect == 8 ?
         `url(${big_dmg})`
         :
         props.card.effect_type == 'damage' && props.card.effect == 5 ?

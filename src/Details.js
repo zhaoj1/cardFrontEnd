@@ -14,7 +14,7 @@ function Details(props){
           <div className='detail-name'>{props.selectedCard.name}</div>
           <div className='detail-img' style={{
                 'background-image':
-                  props.selectedCard.effect_type == 'damage' && props.selectedCard.effect == 10 ?
+                  props.selectedCard.effect_type == 'damage' && props.selectedCard.effect == 8 ?
                     `url(${big_dmg})`
                     :
                     props.selectedCard.effect_type == 'damage' && props.selectedCard.effect == 5 ?
