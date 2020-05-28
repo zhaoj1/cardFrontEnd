@@ -41,12 +41,15 @@ function Card(props){
                 :
                 () => props.setSelectedCard(props.card) 
         } 
-        style={
+      style={
+        props.container == 'enemy-hand' || props.turn =='enemy' ?
+          null
+          :
           props.card.effect_type == 'damage' && props.card.effect == 8 || props.card.effect_type == 'buff' ?
             {'background-color': 'rgb(200,50,50)'}
             :
             null
-        }
+      }
     >
       {props.container == 'enemy-hand'?
         null

@@ -120,7 +120,7 @@ export default class Game extends React.Component{
     if(this.state.currentEnemyHand.length == 0){
       this.setEnemyDeck();
     }else{
-      enemyCard = enemyHand.splice(Math.random(0, enemyHand.length - 1), 1)[0]
+      enemyCard = enemyHand.splice(Math.floor(Math.random()*enemyHand.length), 1)[0]
       amount = enemyCard * multiplier
 
       if(enemyCard.effect_type == 'damage'){

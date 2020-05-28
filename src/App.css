@@ -437,12 +437,13 @@ button:hover{
 
 .player-container{
   width: 97.7%;
-  height: 40%;
+  height: 45%;
   margin: auto;
   display: flex;
   flex-direction: column;
   border: solid;
   background-color: rgba(75,75,130,0.8);
+  justify-content: space-around;
 }
 
 .player-stats{
@@ -473,7 +474,7 @@ button:hover{
 .player-cards-container{
   display: flex;
   flex-direction: row;
-  height: 80%;
+  height: 70%;
 }
 
 .player-hand{
