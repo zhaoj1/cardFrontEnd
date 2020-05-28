@@ -110,6 +110,13 @@ export default class Game extends React.Component{
     }
   }
 
+  selectEnemyCard = (hand) => {
+    enemyCard = hand.splice(Math.floor(Math.random()*hand.length), 1)[0]
+    if(this.state.enemyDouble && enemyCard.effect_type == 'buff'){
+      this.selectEnemyCard()
+    }
+  }
+
   playEnemyCard = () => {
     enemyHand = this.state.currentEnemyHand
     this.state.enemyDouble ? 
@@ -120,7 +127,7 @@ export default class Game extends React.Component{
     if(this.state.currentEnemyHand.length == 0){
       this.setEnemyDeck();
     }else{
-      enemyCard = enemyHand.splice(Math.floor(Math.random()*enemyHand.length), 1)[0]
+      this.selectEnemyCard(enemyHand);
       amount = enemyCard * multiplier
 
       if(enemyCard.effect_type == 'damage'){
