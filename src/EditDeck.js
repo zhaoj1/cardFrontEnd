@@ -53,7 +53,20 @@ class EditDeck extends React.Component{
               </div>
             </div>
           </div>
-          <div className='edit-card-right'>
+          <div className='edit-card-right'
+            style={
+              this.state.selectedCard.id == undefined ? 
+                {'visibility' : 'hidden'}
+                :
+                this.state.selectedCard.effect_type == 'damage' && this.state.selectedCard.effect == 8 || this.state.selectedCard.effect_type == 'buff' ?
+                {
+                  'background-color': 'rgb(200,50,50)',
+                  'visibility': 'visible'
+                }
+                :
+                null
+            }
+          >
             <Details selectedCard={this.state.selectedCard} />
           </div>
         </div>

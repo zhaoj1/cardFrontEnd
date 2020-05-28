@@ -1,5 +1,6 @@
 import React from 'react';
 import big_dmg from './images/big_dmgV2.png'
+import double from './images/double.png'
 import lil_dmg from './images/lil_dmgV2.png'
 import heal from './images/healV2.png'
 import vamp from './images/vampV2.png'
@@ -10,7 +11,7 @@ function Details(props){
       {props.selectedCard == undefined || props.selectedCard.id == undefined?
         null
         :
-        <div className='card-face'>
+        <div className='card-face' >
           <div className='detail-name'>{props.selectedCard.name}</div>
           <div className='detail-img' style={{
                 'background-image':
@@ -26,7 +27,10 @@ function Details(props){
                         props.selectedCard.effect_type == 'vamp' ?
                           `url(${vamp})`
                           :
-                          null
+                          props.selectedCard.effect_type == 'buff' ?
+                            `url(${double})`
+                            :
+                            null
           }}></div>
           <div className='detail-description'>{props.selectedCard.description}</div>
         </div>

@@ -24,11 +24,7 @@ Things in progress:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] instructions    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[X] game mat   
 &nbsp;&nbsp;[X] Error messages (move away from alerts)     
-&nbsp;&nbsp;[] victory/lose messages/images    
-&nbsp;&nbsp;[] Backend:     
-&nbsp;&nbsp;&nbsp;&nbsp;[] fix up card descriptions     
-&nbsp;&nbsp;&nbsp;&nbsp;[] add more cards:   
-&nbsp;&nbsp;&nbsp;&nbsp;[] add more mechanics:          
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] special cards (limit to 1)   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[] adjust deck between fights?     
+&nbsp;&nbsp;[X] victory/lose messages/images    
+&nbsp;&nbsp;[X] add more mechanics:          
+&nbsp;&nbsp;&nbsp;&nbsp;[X] special cards (limit to 1)     
 &nbsp;&nbsp;[X] do not allow refresh when graveyard is 0  

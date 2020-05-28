@@ -16,9 +16,14 @@ const customStyles = {
     right : 'auto',
     bottom : 'auto',
     marginRight : '-50%',
-    transform : 'translate(-50%, -50%)'
+    transform : 'translate(-50%, -50%)',
+    backgroundColor : 'rgb(80,80,150)',
+    border : 'black'
   },
-  overlay: {zIndex:3}
+  overlay: {
+    zIndex:3,
+    backgroundColor : 'rgba(0,0,0,0.75)'
+  }
 };
 
 Modal.setAppElement('#root');
@@ -37,7 +42,8 @@ export default class App extends React.Component{
       modal: false,
       modalContents: '',
       error: false,
-      errorMsg: ''
+      errorMsg: '',
+      hasSpecialCard: false
     }
   }
 
@@ -94,7 +100,8 @@ export default class App extends React.Component{
       currentEnemy: 1,
       playerFullDeck: [],
       modal: false,
-      modalContents: ''
+      modalContents: '',
+      hasSpecialCard: false
     })
   }
 
@@ -108,28 +115,44 @@ export default class App extends React.Component{
   }
 
   setCardToDeck = (card) => {
+    this.setState({
+      error: false,
+      errorMsg: ''
+    })
     this.state.playerFullDeck.length == 5 ?
       this.setState({
         error: true,
         errorMsg: 'Deck cannot exceed 5 cards'
       })
       :
-      this.state.playerFullDeck[0] && this.state.playerFullDeck[0].id == 1 && card.id == 1?
+      card.id == 1 && this.state.hasSpecialCard || card.id == 2 && this.state.hasSpecialCard ?
         this.setState({
           error: true,
           errorMsg: 'Deck can only have a single special card'
         })
         :
         deck = [...this.state.playerFullDeck, card].sort(function (a,b){return (a.id - b.id)})
-        this.setState({
-          playerFullDeck: deck
-        })
+        
+        card.special ? 
+          this.setState({
+            playerFullDeck: deck,
+            hasSpecialCard: true
+          })
+          :
+          this.setState({
+            playerFullDeck: deck
+          })
   }
 
   removeCardFromDeck = (card) => {
     deck = this.state.playerFullDeck
     deck.splice(deck.findIndex(deckCard => deckCard.id == card.id), 1)
-    this.setState({playerFullDeck: deck})
+    this.setState({
+      playerFullDeck: deck,
+      error: false,
+      errorMsg: ''
+    })
+    if(card.id == 1 || card.id == 2){this.setState({hasSpecialCard: false})}
   }
 
   openModal = (contents) => {
