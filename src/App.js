@@ -36,7 +36,7 @@ export default class App extends React.Component{
     this.state = {
       cards: [],
       enemies: [],
-      currentEnemy: 1,
+      currentEnemy: 4,
       page: 'main',
       playerFullDeck:[],
       modal: false,

@@ -111,10 +111,7 @@ export default class Game extends React.Component{
   }
 
   selectEnemyCard = (hand) => {
-    enemyCard = hand.splice(Math.floor(Math.random()*hand.length), 1)[0]
-    if(this.state.enemyDouble && enemyCard.effect_type == 'buff'){
-      this.selectEnemyCard()
-    }
+    enemyCard = hand.splice(Math.floor(Math.random()*hand.length-1), 1)[0]
   }
 
   playEnemyCard = () => {

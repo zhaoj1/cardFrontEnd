@@ -371,7 +371,7 @@ button:hover{
 .enemy-data{
   width: 40%;
   border:solid;
-  background-color: rgba(75,75,130,0.8);
+  background-color: rgba(75,75,130,0.5);
 }
 
 .enemy-hand{
@@ -404,6 +404,7 @@ button:hover{
   margin: auto;
   margin-bottom: 2%;
   position: relative;
+  height: 15%;
 }
 
 .enemy-blood{
@@ -420,8 +421,9 @@ button:hover{
   position: relative;
   z-index: 2;
   text-align: center;
-  margin: auto;
-  height: 100%
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .enemy-deck{
@@ -463,11 +465,9 @@ button:hover{
 
 .player-blood{
   background-color: red;
-  /* display:flex; */
   height:100%;
   transition: width 0.15s;
   z-index: 1;
-  height: 100%;
   position: absolute;
 }
 
