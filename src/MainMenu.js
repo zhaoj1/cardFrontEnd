@@ -4,7 +4,7 @@ function MainMenu(props){
   return(
     <div className='mainMenu'>
       <div className='title-screen'>
-        <h1 className='title'>Fantasy Redraw</h1><br></br>
+        <label className='title'>Fantasy Redraw</label><br></br>
         <button className='mainMenuButton' onClick={props.editDeck}>Begin</button><br></br>
         <button className='mainMenuButton' onClick={props.showInstructions} >Instructions</button>
       </div>

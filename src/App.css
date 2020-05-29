@@ -15,21 +15,30 @@ button:hover{
   display: flex;
   height: 100%;
   width: 100%;
+  background-image: url('./images/title.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .title-screen{
   margin: auto;
   text-align: center;
+  transform: translate(0, -20%);
 }
 
 .title{
-  color: white;
+  color: gold;
   font-variant: small-caps;
-  font-size: 50px;
+  font-size: 100px;
+  font-family: 'Piedra';
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: black;
 }
 
 .mainMenuButton{
   font-size: 25px;
+  font-family: 'Abel', sans-serif;
   border-radius: 10px;
   padding: 2%;
   margin-bottom: 10px;
@@ -40,6 +49,7 @@ button:hover{
   color: red;
   font-size: 25px;
   text-align: center;
+  font-family: 'Abel', sans-serif;
 }
 
 .game-instructions{
@@ -49,6 +59,7 @@ button:hover{
 .game-instructions-text{
   color: whitesmoke;
   font-size: 20px;
+  font-family: 'Abel', sans-serif;
   margin: auto;
 }
 
@@ -56,11 +67,13 @@ button:hover{
   font-size: 15px;
   border-radius: 5px;
   margin: auto;
+  font-family: 'Abel', sans-serif;
 }
 
 .modal{
   text-align: center;
   font-size: 25px;
+  font-family: 'Abel', sans-serif;
 }
 
 .modalBtnContainer{
@@ -71,6 +84,7 @@ button:hover{
   font-size: 15px;
   border-radius: 5px;
   margin: auto;
+  font-family: 'Abel', sans-serif;
 }
 
 .lose-img{
@@ -89,6 +103,7 @@ button:hover{
   font-size: 25px;
   border-radius: 10px;
   padding: 0.5%;
+  font-family: 'Abel', sans-serif;
 }
 
 .edit-container{
@@ -103,7 +118,8 @@ button:hover{
   text-align: center;
   writing-mode: vertical-rl;
   text-orientation: sideways-right;
-  transform: rotate(180deg)
+  transform: rotate(180deg);
+  font-family: 'Abel', sans-serif;
 }
 
 .available-cards{
@@ -262,6 +278,7 @@ button:hover{
 .instructions-text{
   color: whitesmoke;
   font-size: 20px;
+  font-family: 'Abel', sans-serif;
 }
 
 .details{
@@ -277,6 +294,7 @@ button:hover{
   background-color: rgba(222,184,135, .5);
   border-radius: 5px;
   font-size: 20px;
+  font-family: 'Abel', sans-serif;
 }
 
 .detail-img{
@@ -294,6 +312,7 @@ button:hover{
   background-color: rgba(222,184,135, .5);
   border-radius: 5px;
   font-size: 20px;
+  font-family: 'Abel', sans-serif;
 }
 
 .game-screen{
@@ -338,6 +357,7 @@ button:hover{
   float: top;
   font-size: 15px;
   border-radius: 5px;
+  font-family: 'Abel', sans-serif;
 }
 
 .graveyard-details{
@@ -357,6 +377,7 @@ button:hover{
   writing-mode: vertical-rl;
   text-orientation: sideways-right;
   transform: rotate(180deg);
+  font-family: 'Abel', sans-serif;
 }
 
 .graveyardCard{
@@ -417,6 +438,7 @@ button:hover{
 
 .hp-num{
   font-weight: bold;
+  font-family: 'Abel', sans-serif;
   color: rgb(250, 250, 250);
   position: relative;
   z-index: 2;
