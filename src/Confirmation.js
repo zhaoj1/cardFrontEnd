@@ -10,7 +10,7 @@ function Confirmation(props){
       {props.modalContents == 'main menu' ?
         <>
           <p>Return to Main Menu</p>
-          <p>Are You Sure?</p><br></br>
+          <p>Are You Sure?</p>
           <div className='modalBtnContainer' >
             <button className='modalBtn' onClick={props.mainMenu}>OK</button>
             <button className='modalBtn' onClick={props.closeModal}>CANCEL</button>
