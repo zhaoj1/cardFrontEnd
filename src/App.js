@@ -53,7 +53,7 @@ export default class App extends React.Component{
   }
 
   fetchCards = () => {
-    fetch('http://localhost:3000/cards')
+    fetch('https://fantasy-redraw.herokuapp.com/cards')
     .then(resp => resp.json())
     .then(response => {
       this.setState({
@@ -63,7 +63,7 @@ export default class App extends React.Component{
   }
 
   fetchEnemies = () => {
-    fetch('http://localhost:3000/enemies')
+    fetch('https://fantasy-redraw.herokuapp.com/enemies')
     .then(resp => resp.json())
     .then(response => {
       this.setState({
@@ -125,7 +125,7 @@ export default class App extends React.Component{
         errorMsg: 'Deck cannot exceed 5 cards'
       })
       :
-      card.id == 1 && this.state.hasSpecialCard || card.id == 2 && this.state.hasSpecialCard ?
+      this.state.hasSpecialCard && card.special ?
         this.setState({
           error: true,
           errorMsg: 'Deck can only have a single special card'
@@ -152,7 +152,7 @@ export default class App extends React.Component{
       error: false,
       errorMsg: ''
     })
-    if(card.id == 1 || card.id == 2){this.setState({hasSpecialCard: false})}
+    if(card.special){this.setState({hasSpecialCard: false})}
   }
 
   openModal = (contents) => {

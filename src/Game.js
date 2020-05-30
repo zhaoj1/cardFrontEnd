@@ -10,8 +10,8 @@ import lich from './images/lich.png'
 var playerHand, enemyHand, enemyCard, multiplier, amount
 
 const defaultState = {
-  playerHP: 150,
-  playerMaxHP: 150,
+  playerHP: 100,
+  playerMaxHP: 100,
   playerHand: [],
   playerGraveyard: [],
   selectedCardIndex: null,
@@ -22,7 +22,8 @@ const defaultState = {
   currentEnemyGraveyard: [],
   turn: 'player',
   playerDouble: false,
-  enemyDouble: false
+  enemyDouble: false,
+  guard: false
 }
 
 export default class Game extends React.Component{
@@ -34,7 +35,7 @@ export default class Game extends React.Component{
       playerHand: [...this.props.playerFullDeck],
       currentEnemyHP: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).hp,
       currentEnemyMaxHP: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).hp,
-      currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).deck.slice(1,-1).split(', ').map(n => parseInt(n))
+      currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).deck.map(n => parseInt(n))
     }, () => {
       this.setEnemyDeck()
     })
@@ -49,7 +50,7 @@ export default class Game extends React.Component{
         selectedCardIndex: null,
         currentEnemyHP: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).hp,
         currentEnemyMaxHP: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).hp,
-        currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).deck.slice(1,-1).split(', ').map(n => parseInt(n))
+        currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).deck.map(n => parseInt(n))
       }, () => {
         this.setEnemyDeck()
       })
@@ -107,6 +108,14 @@ export default class Game extends React.Component{
         turn: 'enemy',
         playerDouble: true
       }, () => {this.fightEnd();})
+    }else if(card.effect_type == 'guard'){
+      this.setState({
+        playerHand: playerHand,
+        selectedCardIndex: null,
+        playerGraveyard: [...this.state.playerGraveyard, card],
+        turn: 'enemy',
+        guard: true
+      }, () => {this.fightEnd();})
     }
   }
 
@@ -116,48 +125,55 @@ export default class Game extends React.Component{
 
   playEnemyCard = () => {
     enemyHand = this.state.currentEnemyHand
-    this.state.enemyDouble ? 
-      multiplier = 2
+    this.state.guard ?
+      multiplier = 0
       :
-      multiplier = 1
+      this.state.enemyDouble ? 
+        multiplier = 2
+        :
+        multiplier = 1
 
     if(this.state.currentEnemyHand.length == 0){
       this.setEnemyDeck();
     }else{
       this.selectEnemyCard(enemyHand);
-      amount = enemyCard * multiplier
+      amount = enemyCard.effect * multiplier
 
       if(enemyCard.effect_type == 'damage'){
         this.setState({
-          playerHP: this.state.playerHP - enemyCard.effect,
+          playerHP: this.state.playerHP - amount,
           currentEnemyHand: enemyHand,
           currentEnemyGraveyard: [...this.state.currentEnemyGraveyard, enemyCard],
           turn: 'player',
-          enemyDouble: false
+          enemyDouble: false,
+          guard: false
         })
       }else if(enemyCard.effect_type == 'heal'){
         this.setState({
-          currentEnemyHP: this.state.currentEnemyHP + enemyCard.effect,
+          currentEnemyHP: this.state.currentEnemyHP + amount,
           currentEnemyHand: enemyHand,
           currentEnemyGraveyard: [...this.state.currentEnemyGraveyard, enemyCard],
           turn: 'player',
-          enemyDouble: false
+          enemyDouble: false,
+          guard: false
         })
       }else if(enemyCard.effect_type == 'vamp'){
         this.setState({
-          playerHP: this.state.playerHP - enemyCard.effect,
-          currentEnemyHP: this.state.currentEnemyHP + enemyCard.effect,
+          playerHP: this.state.playerHP - amount,
+          currentEnemyHP: this.state.currentEnemyHP + amount,
           currentEnemyHand: enemyHand,
           currentEnemyGraveyard: [...this.state.currentEnemyGraveyard, enemyCard],
           turn: 'player',
-          enemyDouble: false
+          enemyDouble: false,
+          guard: false
         })
       }else if(enemyCard.effect_type == 'buff'){
         this.setState({
           currentEnemyHand: enemyHand,
           currentEnemyGraveyard: [...this.state.currentEnemyGraveyard, enemyCard],
           turn: 'player',
-          enemyDouble: true
+          enemyDouble: true,
+          guard: false
         })
       }
     }
@@ -201,12 +217,13 @@ export default class Game extends React.Component{
     return(
       <div className='game-screen'>
         <div className='game-mat'>
+          {console.log(this.state)}
           <div className='detail-container' 
             style={
               this.state.selectedCardIndex == null ? 
                 {'visibility' : 'hidden'}
                 :
-                this.props.playerFullDeck[this.state.selectedCardIndex].effect_type == 'damage' && this.props.playerFullDeck[this.state.selectedCardIndex].effect == 8 || this.props.playerFullDeck[this.state.selectedCardIndex].effect_type == 'buff' ?
+                this.props.playerFullDeck[this.state.selectedCardIndex].special ?
                 {
                   'background-color': 'rgb(200,50,50)',
                   'visibility': 'visible'

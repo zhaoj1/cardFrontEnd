@@ -59,7 +59,7 @@ class EditDeck extends React.Component{
               this.state.selectedCard.id == undefined ? 
                 {'visibility' : 'hidden'}
                 :
-                this.state.selectedCard.effect_type == 'damage' && this.state.selectedCard.effect == 8 || this.state.selectedCard.effect_type == 'buff' ?
+                this.state.selectedCard.special ?
                 {
                   'background-color': 'rgb(200,50,50)',
                   'visibility': 'visible'

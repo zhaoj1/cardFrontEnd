@@ -45,7 +45,7 @@ function Card(props){
         props.container == 'enemy-hand' || props.turn =='enemy' ?
           null
           :
-          props.card.effect_type == 'damage' && props.card.effect == 8 || props.card.effect_type == 'buff' ?
+          props.card.special ?
             {'background-color': 'rgb(200,50,50)'}
             :
             null
