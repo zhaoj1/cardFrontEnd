@@ -101,6 +101,7 @@ button:hover{
 
 .editDeckButton{
   font-size: 25px;
+  margin: 0 5px 0 5px;
   border-radius: 10px;
   padding: 0.5%;
   font-family: 'Abel', sans-serif;

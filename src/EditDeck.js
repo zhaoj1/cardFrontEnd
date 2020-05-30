@@ -18,6 +18,7 @@ class EditDeck extends React.Component{
       <div className='edit-container'>
         <div className='editDeckButton-container' >
           <button className='editDeckButton' onClick={this.props.startGame}>Start Game</button>
+          <button className='editDeckButton' onClick={this.props.mainMenu}>Back</button>
         </div>
         {this.props.error ? 
           <div className='error' >{this.props.errorMsg}</div>

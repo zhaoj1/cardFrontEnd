@@ -182,7 +182,7 @@ export default class App extends React.Component{
           <MainMenu editDeck={this.editDeck} showInstructions={this.showInstructions} />
           :
           this.state.page == 'edit' ?
-            <EditDeck startGame={this.startGame} cards={this.state.cards} setCardToDeck={this.setCardToDeck} playerFullDeck={this.state.playerFullDeck} removeCardFromDeck={this.removeCardFromDeck} error={this.state.error} errorMsg={this.state.errorMsg} />
+            <EditDeck startGame={this.startGame} cards={this.state.cards} setCardToDeck={this.setCardToDeck} playerFullDeck={this.state.playerFullDeck} removeCardFromDeck={this.removeCardFromDeck} error={this.state.error} errorMsg={this.state.errorMsg} mainMenu={this.mainMenu} />
             :
             this.state.page == 'game' ?
               <Game mainMenu={this.mainMenu} enemies={this.state.enemies} cards={this.state.cards} playerFullDeck={this.state.playerFullDeck} currentEnemy={this.state.currentEnemy} gameWon={this.gameWon} openModal={this.openModal} />
