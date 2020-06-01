@@ -1,6 +1,7 @@
 import React from 'react';
 import big_dmg from './images/big_dmgV2.png'
 import double from './images/double.png'
+import guard from './images/shield.png'
 import lil_dmg from './images/lil_dmgV2.png'
 import heal from './images/healV2.png'
 import vamp from './images/vampV2.png'
@@ -24,7 +25,10 @@ function GraveyardCard(props){
               props.card.effect_type == 'buff' ?
                 `url(${double})`
                 :
-                null
+                props.card.effect_type == 'guard' ?
+                  `url(${guard})`
+                  :
+                  null
   }
 
   return(
