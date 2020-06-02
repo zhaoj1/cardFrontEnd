@@ -7,7 +7,7 @@ import kobold from './images/kobold.png'
 import ogre from './images/ogre.png'
 import lich from './images/lich.png'
 
-var playerHand, enemyHand, enemyCard, multiplier, amount
+var playerHand, enemyHand, enemyCard, multiplier, amount, rngNum, redrawRNGCard
 
 const defaultState = {
   playerHP: 100,
@@ -23,7 +23,8 @@ const defaultState = {
   turn: 'player',
   playerDouble: false,
   enemyDouble: false,
-  guard: false
+  guard: false,
+  sns: false
 }
 
 export default class Game extends React.Component{
@@ -114,7 +115,19 @@ export default class Game extends React.Component{
         selectedCardIndex: null,
         playerGraveyard: [...this.state.playerGraveyard, card],
         turn: 'enemy',
-        guard: true
+        guard: true,
+        playerDouble: false
+      }, () => {this.fightEnd();})
+    }else if(card.effect_type == 'draw'){
+      rngNum = Math.floor(Math.random() * this.state.playerGraveyard.length)
+      redrawRNGCard = this.state.playerGraveyard.splice(rngNum, 1)[0]
+      this.setState({
+        currentEnemyHP: this.state.currentEnemyHP - amount,
+        playerHand: [...playerHand, redrawRNGCard].sort((a,b) => a.id - b.id),
+        selectedCardIndex: null,
+        playerGraveyard: [...this.state.playerGraveyard, card],
+        turn: 'enemy',
+        playerDouble: false
       }, () => {this.fightEnd();})
     }
   }
@@ -217,7 +230,6 @@ export default class Game extends React.Component{
     return(
       <div className='game-screen'>
         <div className='game-mat'>
-          {console.log(this.state)}
           <div className='detail-container' 
             style={
               this.state.selectedCardIndex == null ? 
