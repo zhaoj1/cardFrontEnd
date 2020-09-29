@@ -328,11 +328,6 @@ export default class Game extends React.Component{
             </div>
           </div>
           <div className='player-cards-container' >
-            <div className='player-hand' >
-              {this.state.playerHand.map((card, index) => {
-                return <Card card={card} setSelectedCard={this.setSelectedCard} selectedCardIndex={this.state.selectedCardIndex} container='player-hand' index={index} playCard={this.playCard} turn={this.state.turn} />
-              })}
-            </div>
             <div className='graveyard-container' onClick={
               this.state.playerGraveyard.length == 0 ?
                 null
@@ -349,6 +344,14 @@ export default class Game extends React.Component{
                 <label className='graveyard-length'>{this.state.playerGraveyard.length}</label>
               </div>
             </div>
+            <div className='player-hand' >
+              {this.state.playerHand.map((card, index) => {
+                return <Card card={card} setSelectedCard={this.setSelectedCard} selectedCardIndex={this.state.selectedCardIndex} container='player-hand' index={index} playCard={this.playCard} turn={this.state.turn} />
+              })}
+            </div>
+            <div className='game-text'>
+                GAME TEXT
+              </div>
           </div>
         </div>
       </div>

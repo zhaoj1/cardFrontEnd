@@ -524,10 +524,14 @@ button:hover{
 }
 
 .player-cards-container{
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around; */
   height: 70%;
+  padding-left: 2%;
+  padding-right: 2%;
+  display: grid;
+  grid-template-columns: 15% 60% 25%  ;
 }
 
 /* .player-hand{
@@ -539,17 +543,20 @@ button:hover{
 } */
 
 .player-hand{
+  grid-row: 1;
   height: 80%;
   display: grid;
-  grid-template-columns: 10% 10% 10% 10% 10%;
+  grid-template-columns: 17% 17% 17% 17% 17%;
   column-gap: 3%;
   width: 100%;
   margin: auto;
+  margin-left: 1%;
 }
 
 .graveyard-container{
+  grid-row: 1;
   height: 80%;
-  width: 13%;
+  width: 80%;
   margin:auto;
   display:flex; 
   align-items: center;
@@ -595,6 +602,13 @@ button:hover{
 
 .click-graveyard:hover{
   border: solid yellow 5px;
+}
+
+.game-text{
+  grid-row: 1;
+  background-color: white;
+  margin: 5px;
+  padding: 5px;
 }
 
 @keyframes blinker {
