@@ -149,7 +149,7 @@ button:hover{
 } 
 
 .card:hover{
-  transform: scale(1.2)
+  transform: scale(1.2);
 }
 
 .card-face{
@@ -202,6 +202,7 @@ button:hover{
   margin-right: 1%;
   text-align: center;
   display: flex;
+  transform: scale(1.2);
 } 
 
 .selected-card:hover{

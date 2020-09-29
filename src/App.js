@@ -26,6 +26,23 @@ const customStyles = {
   }
 };
 
+const cards = [
+  {id: 1, name: 'big dmg', description: 'Deal 10 damage', effect_type: 'damage', effect: 10, special: true},
+  {id: 2, name: 'double', description: 'Next card x2 effect', effect_type: 'buff', effect: 0, special: true},
+  {id: 3, name: 'guard', description: 'Block enemy card', effect_type: 'guard', effect: 0, special: true},
+  {id: 4, name: 'lil dmg', description: 'Deal 4 damage', effect_type: 'damage', effect: 4, special: false},
+  {id: 5, name: 'heal', description: 'Heal 8 HP', effect_type: 'heal', effect: 8, special: false},
+  {id: 6, name: 'vamp', description: 'Deal 3 damage and heal 3 HP', effect_type: 'vamp', effect: 3, special: false},
+  {id: 7, name: 'dagger', description: 'Deal 2 damage and redraw 1 random card from graveyard', effect_type: 'draw', effect: 0, special: false}
+]
+
+const enemies = [
+  {id: 1, name: 'Slime', hp: 30, deck: [4,4,4,5]},
+  {id: 2, name: 'Kobold', hp: 50, deck: [1,4,5,6]},
+  {id: 3, name: 'Orc', hp: 80, deck: [1,4,4,4]},
+  {id: 4, name: 'Lich King', hp: 100, deck: [1,2,4,4]}
+]
+
 Modal.setAppElement('#root');
 
 export default class App extends React.Component{
@@ -34,8 +51,8 @@ export default class App extends React.Component{
     super();
 
     this.state = {
-      cards: [],
-      enemies: [],
+      cards: cards,
+      enemies: enemies,
       currentEnemy: 4,
       page: 'main',
       playerFullDeck:[],
@@ -47,30 +64,30 @@ export default class App extends React.Component{
     }
   }
 
-  componentDidMount(){
-    this.fetchCards();
-    this.fetchEnemies();
-  }
+  // componentDidMount(){
+  //   this.fetchCards();
+  //   this.fetchEnemies();
+  // }
 
-  fetchCards = () => {
-    fetch('https://fantasy-redraw.herokuapp.com/cards')
-    .then(resp => resp.json())
-    .then(response => {
-      this.setState({
-        cards: response
-      })
-    })
-  }
+  // fetchCards = () => {
+  //   fetch('https://fantasy-redraw.herokuapp.com/cards')
+  //   .then(resp => resp.json())
+  //   .then(response => {
+  //     this.setState({
+  //       cards: response
+  //     })
+  //   })
+  // }
 
-  fetchEnemies = () => {
-    fetch('https://fantasy-redraw.herokuapp.com/enemies')
-    .then(resp => resp.json())
-    .then(response => {
-      this.setState({
-        enemies: response
-      })
-    })
-  }
+  // fetchEnemies = () => {
+  //   fetch('https://fantasy-redraw.herokuapp.com/enemies')
+  //   .then(resp => resp.json())
+  //   .then(response => {
+  //     this.setState({
+  //       enemies: response
+  //     })
+  //   })
+  // }
 
   editDeck = () => {
     this.setState({page:'edit'})
@@ -172,6 +189,8 @@ export default class App extends React.Component{
   render(){
     return(
       <div className='main-container'>
+        {console.log(this.state.cards)}
+        {console.log(this.state.enemies)}
         <Modal
           isOpen={this.state.modal}
           style={customStyles}

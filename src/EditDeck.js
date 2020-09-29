@@ -10,7 +10,7 @@ class EditDeck extends React.Component{
   }
 
   setSelectedCard = (card) => {
-    this.setState({selectedCard:card})
+    this.setState({selectedCard: card})
   }
 
   render(){

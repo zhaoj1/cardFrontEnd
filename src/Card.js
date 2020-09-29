@@ -6,7 +6,6 @@ import lil_dmg from './images/lil_dmgV2.png'
 import heal from './images/healV2.png'
 import vamp from './images/vampV2.png'
 import dagger from './images/dagger.png'
-import sns from './images/sns.png'
 
 function Card(props){
   return(
@@ -81,10 +80,7 @@ function Card(props){
                               props.card.effect_type == 'draw' ?
                                 `url(${dagger})`
                                 :
-                                props.card.effect_type == 'sns' ?
-                                  `url(${sns})`
-                                  :
-                                  null
+                                null
               }}>
           </div>
         </div>
