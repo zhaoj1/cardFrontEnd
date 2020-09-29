@@ -112,6 +112,7 @@ button:hover{
 }
 
 .edit-labels{
+  grid-row: 1;
   color: white;
   font-size: 20px;
   word-spacing: 5px;
@@ -130,21 +131,20 @@ button:hover{
 }
 
 .cards-container{
-  margin: auto;
+  margin: 2% auto auto auto;
   height: 15%;
-  display:flex;
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% ;
+  column-gap: 3%;
   width: 100%;
 }
 
 .card{
-  height: 100%;
-  width: 15%;
-  margin-right: 1%;
+  grid-row: 1;
   text-align: center;
   border: solid 5px;
   background-color: rgb(145,70,0);
   border-radius: 5%;
-  display: flex;
   transition: all .5s ease-in-out;
 } 
 
@@ -154,9 +154,9 @@ button:hover{
 
 .card-face{
   margin:auto;
-  height:90%;
   text-align: center;
-  width: 80%;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -171,8 +171,9 @@ button:hover{
 }
 
 .card-img{
-  height: 7rem;
-  margin-bottom:15%;
+  width: 80%;
+  height: 80%;
+  margin: auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -193,15 +194,24 @@ button:hover{
   margin: auto;
 }
 
-.selected-card{
+/* .selected-card{
   height: 100%;
   border: solid yellow 5px;
   background-color: rgb(145,70,0);
   border-radius: 5%;
-  width: 15%;
-  margin-right: 1%;
+  width: 10%;
+  margin-right: auto;
   text-align: center;
   display: flex;
+  transform: scale(1.2);
+}  */
+
+.selected-card{
+  grid-row: 1;
+  border: solid yellow 5px;
+  text-align: center;
+  background-color: rgb(145,70,0);
+  border-radius: 5%;
   transform: scale(1.2);
 } 
 
@@ -265,11 +275,20 @@ button:hover{
   display: flex;
 }
 
-.deck-editor{
+/* .deck-editor{
   margin: auto;
-  height: 25%;
+  height: 20%;
   display:flex;
-  margin-top: 2%;
+  margin-top: 3%;
+} */
+
+.deck-editor{
+  height: 15%;
+  margin: 5% auto auto auto;
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 10% 10%;
+  column-gap: 3%;
+  width: 100%;
 }
 
 .instructions{
@@ -297,10 +316,16 @@ button:hover{
   border-radius: 5px;
   font-size: 20px;
   font-family: 'Abel', sans-serif;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .detail-img{
-  height: 6rem;
+  height: 7rem;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -311,6 +336,9 @@ button:hover{
 
 .detail-description{
   height: 8rem;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
   background-color: rgba(222,184,135, .5);
   border-radius: 5px;
   font-size: 20px;
@@ -498,15 +526,25 @@ button:hover{
 .player-cards-container{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   height: 70%;
 }
 
-.player-hand{
+/* .player-hand{
   height: 80%;
   width: 65%;
   margin:auto;
   display: flex;
   text-align: center;
+} */
+
+.player-hand{
+  height: 80%;
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 10%;
+  column-gap: 3%;
+  width: 100%;
+  margin: auto;
 }
 
 .graveyard-container{
