@@ -294,12 +294,12 @@ export default class Game extends React.Component{
                 ></div>
                 <div className='hp-num'>{this.state.currentEnemyHP}/{this.state.currentEnemyMaxHP}</div>
               </div>
-              <div className='enemy-deck'>
-                <div className='enemy-hand'>
-                  {this.state.currentEnemyHand.map(card => {
-                    return <Card card={card} container='enemy-hand' playCard={this.playCard} />
-                  })}
-                </div>
+            </div>
+            <div className='enemy-deck'>
+              <div className='enemy-hand'>
+                {this.state.currentEnemyHand.map(card => {
+                  return <Card card={card} container='enemy-hand' playCard={this.playCard} />
+                })}
               </div>
             </div>
           </div>

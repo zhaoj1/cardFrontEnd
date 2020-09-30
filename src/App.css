@@ -427,11 +427,11 @@ button:hover{
 }
 
 .enemy-hand{
-  margin-top:1%;
-  height: 70%;
+  margin-top:2%;
+  height: 90%;
   display: flex;
   justify-content: center;
-  width: 90%;
+  width: 75%;
 }
 
 .enemy-img{
@@ -444,25 +444,26 @@ button:hover{
 }
 
 .enemy-stats{
-  height: 40%;
+  height: 6%;
   width: 80%;
   margin: auto;
   padding-top: 0.75%;
+  display: flex;
 }
 
 .enemy-hp{
   background-color: black;
   width: 50%;
   margin: auto;
-  margin-bottom: 2%;
   position: relative;
-  height: 15%;
+  height: 100%;
 }
 
 .enemy-blood{
   background-color: red;
   transition: width 0.15s;
   position: absolute;
+  margin-bottom:10%;
   z-index: 1;
   height: 100%;
 }
@@ -474,13 +475,14 @@ button:hover{
   position: relative;
   z-index: 2;
   text-align: center;
-  top: 50%;
+  margin: auto;
+  /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 
 .enemy-deck{
-  height: 100%;
+  height: 35%;
   display: flex;
   justify-content: space-around;
 }
