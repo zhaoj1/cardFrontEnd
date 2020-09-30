@@ -1,9 +1,10 @@
-html, body, .app, #app>div, #root, .main-container {
+body, .app, #app>div, #root, .main-container {
   height: 100%;
 }
 
 html{
   background-color: rgba(45,45,70);
+  height: 95%
 }
 
 button:hover{
@@ -487,11 +488,13 @@ button:hover{
 .graveyard-length{
   margin: auto;
   font-weight: bold;
+  font-size: 40px;
+  color: white;
 }
 
 .player-container{
   width: 97.7%;
-  height: 45%;
+  height: 40%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -609,6 +612,7 @@ button:hover{
   background-color: white;
   margin: 5px;
   padding: 5px;
+  margin-bottom: 20px;
 }
 
 @keyframes blinker {

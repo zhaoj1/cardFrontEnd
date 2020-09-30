@@ -119,16 +119,27 @@ export default class Game extends React.Component{
         playerDouble: false
       }, () => {this.fightEnd();})
     }else if(card.effect_type == 'draw'){
-      rngNum = Math.floor(Math.random() * this.state.playerGraveyard.length)
-      redrawRNGCard = this.state.playerGraveyard.splice(rngNum, 1)[0]
-      this.setState({
-        currentEnemyHP: this.state.currentEnemyHP - amount,
-        playerHand: [...playerHand, redrawRNGCard].sort((a,b) => a.id - b.id),
-        selectedCardIndex: null,
-        playerGraveyard: [...this.state.playerGraveyard, card],
-        turn: 'enemy',
-        playerDouble: false
-      }, () => {this.fightEnd();})
+      if(this.state.playerGraveyard.length == 0 ){
+        this.setState({
+          currentEnemyHP: this.state.currentEnemyHP - amount,
+          playerHand: playerHand,
+          selectedCardIndex: null,
+          playerGraveyard: [...this.state.playerGraveyard, card],
+          turn: 'enemy',
+          playerDouble: false
+        }, () => {this.fightEnd();})
+      }else{
+        rngNum = Math.floor(Math.random() * this.state.playerGraveyard.length)
+        redrawRNGCard = this.state.playerGraveyard.splice(rngNum, 1)[0]
+        this.setState({
+          currentEnemyHP: this.state.currentEnemyHP - amount,
+          playerHand: [...playerHand, redrawRNGCard].sort((a,b) => a.id - b.id),
+          selectedCardIndex: null,
+          playerGraveyard: [...this.state.playerGraveyard, card],
+          turn: 'enemy',
+          playerDouble: false
+        }, () => {this.fightEnd();})
+      }
     }
   }
 
