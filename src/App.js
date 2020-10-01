@@ -33,7 +33,7 @@ const cards = [
   {id: 4, name: 'lil dmg', description: 'Deal 4 damage', effect_type: 'damage', effect: 4, special: false},
   {id: 5, name: 'heal', description: 'Heal 8 HP', effect_type: 'heal', effect: 8, special: false},
   {id: 6, name: 'vamp', description: 'Deal 3 damage and heal 3 HP', effect_type: 'vamp', effect: 3, special: false},
-  {id: 7, name: 'dagger', description: 'Deal 2 damage and redraw 1 random card from graveyard', effect_type: 'draw', effect: 0, special: false}
+  {id: 7, name: 'dagger', description: 'Deal 2 damage and redraw 1 random card from graveyard', effect_type: 'draw', effect: 2, special: false}
 ]
 
 const enemies = [
