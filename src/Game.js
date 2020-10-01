@@ -37,7 +37,8 @@ export default class Game extends React.Component{
       playerHand: [...this.props.playerFullDeck],
       currentEnemyHP: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).hp,
       currentEnemyMaxHP: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).hp,
-      currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).deck.map(n => parseInt(n))
+      currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).deck.map(n => parseInt(n)),
+      gameText: []
     }, () => {
       this.setEnemyDeck()
     })
@@ -52,9 +53,10 @@ export default class Game extends React.Component{
         selectedCardIndex: null,
         currentEnemyHP: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).hp,
         currentEnemyMaxHP: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).hp,
-        currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).deck.map(n => parseInt(n))
+        currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).deck.map(n => parseInt(n)),
+        gameText: []
       }, () => {
-        this.setEnemyDeck()
+        this.setEnemyDeckBegin()
       })
     }
   }
@@ -72,7 +74,8 @@ export default class Game extends React.Component{
       :
       multiplier = 1
     amount = card.effect * multiplier
-    var element = document.getElementsByClassName("game-text")[0];
+    const element = document.getElementsByClassName("game-text")[0];
+    const stats = document.getElementsByClassName('enemy-stats')[0];
 
     playerHand.splice(this.state.selectedCardIndex, 1)
     if(card.effect_type == 'damage'){
@@ -86,8 +89,16 @@ export default class Game extends React.Component{
         gameText: [
           ...this.state.gameText, 
           `Player used ${card.name}.`, 
-          `${this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name} was hit for ${amount}!`]
-      },  () => {this.fightEnd();element.scrollTop = element.scrollHeight;})
+          `${this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name} was hit for ${amount}!`
+        ]
+      },  () => {
+        if(amount > 0){
+          stats.style.animation = 'shake 0.5s'
+          setTimeout(() => stats.style.animation = 'none', 500)
+        }
+        this.fightEnd();
+        element.scrollTop = element.scrollHeight;
+      })
     }else if(card.effect_type == 'heal'){
       this.setState({
         playerHP: this.state.playerHP + amount,
@@ -99,7 +110,8 @@ export default class Game extends React.Component{
         gameText: [
           ...this.state.gameText, 
           `Player used ${card.name}.`, 
-          `Player healed for ${amount}!`]
+          `Player healed for ${amount}!`
+        ]
       },  () => {this.fightEnd();element.scrollTop = element.scrollHeight;})
     }else if(card.effect_type == 'vamp'){
       this.setState({
@@ -113,9 +125,16 @@ export default class Game extends React.Component{
         gameText: [
           ...this.state.gameText, 
           `Player used ${card.name}.`, 
-          `Player was healed for ${amount}!`,
-          `${this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name} was hit for ${amount}!`]
-      },  () => {this.fightEnd();element.scrollTop = element.scrollHeight;})
+          `Player healed for ${amount}!`,
+          `${this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name} was hit for ${amount}!`
+        ]
+      },  () => {
+        if(amount > 0){
+          stats.style.animation = 'shake 0.5s'
+          setTimeout(() => stats.style.animation = 'none', 500)
+        }
+        this.fightEnd();
+        element.scrollTop = element.scrollHeight;})
     }else if(card.effect_type == 'buff'){
       this.setState({
         playerHand: playerHand,
@@ -126,7 +145,8 @@ export default class Game extends React.Component{
         gameText: [
           ...this.state.gameText, 
           `Player used ${card.name}.`, 
-          `Player's next card will have double the effect!`]
+          `Player's next card will have double the effect!`
+        ]
       },  () => {this.fightEnd();element.scrollTop = element.scrollHeight;})
     }else if(card.effect_type == 'guard'){
       this.setState({
@@ -139,7 +159,8 @@ export default class Game extends React.Component{
         gameText: [
           ...this.state.gameText, 
           `Player used ${card.name}.`, 
-          `Player will block the next card if it is an attack!`]
+          `Player will block the next card if it is an attack!`
+        ]
       },  () => {this.fightEnd();element.scrollTop = element.scrollHeight;})
     }else if(card.effect_type == 'draw'){
       if(this.state.playerGraveyard.length == 0 ){
@@ -154,8 +175,16 @@ export default class Game extends React.Component{
             ...this.state.gameText, 
             `Player used ${card.name}.`, 
             `There are no cards in the player's graveyard, so no cards were redrawn.`,
-            `${this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name} was hit for ${amount}!`]
-        },  () => {this.fightEnd();element.scrollTop = element.scrollHeight;})
+            `${this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name} was hit for ${amount}!`
+          ]
+        },  () => {
+          if(amount > 0){
+            stats.style.animation = 'shake 0.5s'
+            setTimeout(() => stats.style.animation = 'none', 500)
+          }
+          this.fightEnd();
+          element.scrollTop = element.scrollHeight;
+        })
       }else{
         rngNum = Math.floor(Math.random() * this.state.playerGraveyard.length)
         redrawRNGCard = this.state.playerGraveyard.splice(rngNum, 1)[0]
@@ -170,8 +199,15 @@ export default class Game extends React.Component{
           ...this.state.gameText, 
           `Player used ${card.name}.`,
           `Player redrew ${redrawRNGCard.name} from the graveyard!`, 
-          `${this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name} was hit for ${amount}!`]
-        },  () => {this.fightEnd();element.scrollTop = element.scrollHeight;})
+          `${this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name} was hit for ${amount}!`
+        ]
+        },  () => {
+          if(amount > 0){
+            stats.style.animation = 'shake 0.5s'
+            setTimeout(() => stats.style.animation = 'none', 500)
+          }
+          this.fightEnd();
+          element.scrollTop = element.scrollHeight;})
       }
     }
   }
@@ -189,6 +225,9 @@ export default class Game extends React.Component{
         multiplier = 2
         :
         multiplier = 1
+    var enemyName = this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name
+    const element = document.getElementsByClassName("game-text")[0];
+    const stats = document.getElementsByClassName('player-stats')[0];
 
     if(this.state.currentEnemyHand.length == 0){
       this.setEnemyDeck();
@@ -203,8 +242,18 @@ export default class Game extends React.Component{
           currentEnemyGraveyard: [...this.state.currentEnemyGraveyard, enemyCard],
           turn: 'player',
           enemyDouble: false,
-          guard: false
-        })
+          guard: false,
+          gameText: [
+            ...this.state.gameText, 
+            `${enemyName} used ${enemyCard.name}.`,
+            `Player was hit for ${amount}!`]
+          },  () => {
+            element.scrollTop = element.scrollHeight;
+            if(amount > 0){
+              stats.style.animation = 'shake 0.5s'
+              setTimeout(() => stats.style.animation = 'none', 500)
+            }
+          })
       }else if(enemyCard.effect_type == 'heal'){
         this.setState({
           currentEnemyHP: this.state.currentEnemyHP + amount,
@@ -212,8 +261,13 @@ export default class Game extends React.Component{
           currentEnemyGraveyard: [...this.state.currentEnemyGraveyard, enemyCard],
           turn: 'player',
           enemyDouble: false,
-          guard: false
-        })
+          guard: false,
+          gameText: [
+            ...this.state.gameText, 
+            `${enemyName} used ${enemyCard.name}.`,
+            `${enemyName} healed for ${amount}!`
+          ]
+          },  () => {element.scrollTop = element.scrollHeight;})
       }else if(enemyCard.effect_type == 'vamp'){
         this.setState({
           playerHP: this.state.playerHP - amount,
@@ -222,16 +276,33 @@ export default class Game extends React.Component{
           currentEnemyGraveyard: [...this.state.currentEnemyGraveyard, enemyCard],
           turn: 'player',
           enemyDouble: false,
-          guard: false
-        })
+          guard: false,
+          gameText: [
+            ...this.state.gameText, 
+            `${enemyName} used ${enemyCard.name}.`,
+            `Player was hit for ${amount}!`,
+            `${enemyName} healed for ${amount}!`
+          ]
+          },  () => {
+            element.scrollTop = element.scrollHeight;
+            if(amount > 0){
+              stats.style.animation = 'shake 0.5s'
+              setTimeout(() => stats.style.animation = 'none', 500)
+            }
+          })
       }else if(enemyCard.effect_type == 'buff'){
         this.setState({
           currentEnemyHand: enemyHand,
           currentEnemyGraveyard: [...this.state.currentEnemyGraveyard, enemyCard],
           turn: 'player',
           enemyDouble: true,
-          guard: false
-        })
+          guard: false,
+          gameText: [
+            ...this.state.gameText, 
+            `${enemyName} used ${enemyCard.name}.`,
+            `${enemyName}'s next card will have double the effect!`
+          ]
+          },  () => {element.scrollTop = element.scrollHeight;})
       }
     }
     if(this.state.playerHP <= 0){
@@ -239,25 +310,49 @@ export default class Game extends React.Component{
     }
   }
 
-  setEnemyDeck = () => {
+  setEnemyDeckBegin = () => {
     var enemyDeck= []
+    
     this.state.currentEnemyFullDeckIndex.forEach(i => {
       enemyDeck = [...enemyDeck, this.props.cards.find(card => card.id == i)]
     })
     this.setState({
       currentEnemyHand: enemyDeck,
       currentEnemyGraveyard: [],
-      turn: 'player'
+      turn: 'player',
     })
   }
 
+  setEnemyDeck = () => {
+    var enemyDeck= []
+    const element = document.getElementsByClassName("game-text")[0];
+
+    this.state.currentEnemyFullDeckIndex.forEach(i => {
+      enemyDeck = [...enemyDeck, this.props.cards.find(card => card.id == i)]
+    })
+    this.setState({
+      currentEnemyHand: enemyDeck,
+      currentEnemyGraveyard: [],
+      turn: 'player',
+      gameText: [
+        ...this.state.gameText, 
+        `${this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name} redrew graveyard!`
+      ]
+    }, () => {element.scrollTop = element.scrollHeight})
+  }
+
   setPlayerDeck = () => {
+    const element = document.getElementsByClassName("game-text")[0];
     this.setState({
       playerHand: [...this.props.playerFullDeck],
       playerGraveyard: [],
       turn: 'enemy',
-      selectedCardIndex: null
-    }, () => {setTimeout(() => this.playEnemyCard(), 200)})
+      selectedCardIndex: null,
+      gameText: [
+        ...this.state.gameText, 
+        `Player redrew graveyard!`
+      ]
+    }, () => {element.scrollTop = element.scrollHeight;setTimeout(() => this.playEnemyCard(), 400)})
   }
 
   fightEnd = () => {
@@ -266,7 +361,7 @@ export default class Game extends React.Component{
     }else if(this.state.playerHP <= 0){
       this.props.openModal('lose')
     }else{
-      setTimeout(() => {this.playEnemyCard()}, 200)
+      setTimeout(() => {this.playEnemyCard()}, 400)
     }
   }
 
@@ -394,7 +489,12 @@ export default class Game extends React.Component{
               })}
             </div>
             <div className='game-text'>
-                {this.state.gameText.map(text => <p>{text}</p>)}
+                {this.state.gameText.map(text => 
+                  text.includes('used') || text.includes('redrew graveyard')?
+                    <p className='game-text-played'>{text}</p>
+                  :
+                    <p className='game-text-effect'>{text}</p>
+                )}
               </div>
           </div>
         </div>
