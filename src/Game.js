@@ -404,7 +404,7 @@ export default class Game extends React.Component{
                           null
               }}
             ></div>
-            <p>{this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name}</p>
+            <p className='enemy-name'>{this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).name}</p>
             <div className='enemy-stats'>
               <div className='enemy-hp'>
                 <div className='enemy-blood'

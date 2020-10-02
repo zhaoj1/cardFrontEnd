@@ -7,6 +7,10 @@ html{
   height: 95%
 }
 
+button{
+  font-size: 2vw;
+}
+
 button:hover{
   background-color: slategray;
   color: whitesmoke
@@ -38,7 +42,7 @@ button:hover{
 }
 
 .mainMenuButton{
-  font-size: 25px;
+  font-size: 3vw;
   font-family: 'Abel', sans-serif;
   border-radius: 10px;
   padding: 2%;
@@ -48,7 +52,7 @@ button:hover{
 .error{
   font-weight: bold;
   color: red;
-  font-size: 25px;
+  font-size: 2vw;
   text-align: center;
   font-family: 'Abel', sans-serif;
 }
@@ -59,13 +63,12 @@ button:hover{
 
 .game-instructions-text{
   color: whitesmoke;
-  font-size: 20px;
+  font-size: 2vw;
   font-family: 'Abel', sans-serif;
   margin: auto;
 }
 
 .returnBtn{
-  font-size: 15px;
   border-radius: 5px;
   margin: auto;
   font-family: 'Abel', sans-serif;
@@ -73,7 +76,9 @@ button:hover{
 
 .modal{
   text-align: center;
-  font-size: 25px;
+  font-size: 3vw;
+  color: white;
+  font-weight: bold;
   font-family: 'Abel', sans-serif;
 }
 
@@ -82,8 +87,8 @@ button:hover{
 }
 
 .modalBtn{
-  font-size: 15px;
-  border-radius: 5px;
+  border-radius: 10%;
+  padding: 3%;
   margin: auto;
   font-family: 'Abel', sans-serif;
 }
@@ -101,9 +106,8 @@ button:hover{
 }
 
 .editDeckButton{
-  font-size: 25px;
   margin: 0 5px 0 5px;
-  border-radius: 10px;
+  border-radius: 10%;
   padding: 0.5%;
   font-family: 'Abel', sans-serif;
 }
@@ -115,7 +119,7 @@ button:hover{
 .edit-labels{
   grid-row: 1;
   color: white;
-  font-size: 20px;
+  font-size: 2vw;
   word-spacing: 5px;
   width:3%;
   text-align: center;
@@ -145,7 +149,7 @@ button:hover{
   text-align: center;
   border: solid 5px;
   background-color: rgb(145,70,0);
-  border-radius: 5%;
+  border-radius: 10%;
   transition: all .5s ease-in-out;
 } 
 
@@ -167,7 +171,7 @@ button:hover{
   height: 10%;
   background-color: rgba(222,184,135, .5);
   margin-bottom:15%;
-  border-radius: 5px;
+  border-radius: 10%;
   padding: 2px;
 }
 
@@ -179,14 +183,14 @@ button:hover{
   background-repeat: no-repeat;
   background-size: contain;
   border: solid black 2px;
-  border-radius: 5%;
+  border-radius: 10%;
   background-color: rgb(128, 130, 132)
 }
 
 .card-description{
   height: 3rem;
   background-color: rgba(222,184,135, .5);
-  border-radius: 5px;
+  border-radius: 10%;
   padding: 2px;
   display: flex;
 }
@@ -201,7 +205,7 @@ button:hover{
   box-shadow: 0 0 5px 5px yellow;
   text-align: center;
   background-color: rgb(145,70,0);
-  border-radius: 5%;
+  border-radius: 10%;
 } 
 
 .selected-card:hover{
@@ -212,7 +216,7 @@ button:hover{
 .selected-card-name{
   height: 10%;
   background-color: rgba(222,184,135, .5);
-  border-radius: 5px;
+  border-radius: 10%;
   font-size: 20px;
 }
 
@@ -226,7 +230,7 @@ button:hover{
 .selected-card-description{
   height: 10%;
   background-color: rgba(222,184,135, .5);
-  border-radius: 5px;
+  border-radius: 10%;
   font-size: 20px;
 }
 
@@ -239,7 +243,7 @@ button:hover{
   background-repeat: no-repeat;
   background-size: contain;
   border: solid black 3px;
-  border-radius: 5px;
+  border-radius: 10%;
   width: 20%;
   background-color:rgb(150,30,30);
 }
@@ -261,7 +265,7 @@ button:hover{
   text-align: center;
   border: solid 5px;
   background-color: rgb(145,70,0);
-  border-radius: 5%;
+  border-radius: 10%;
   display: flex;
 }
 
@@ -281,7 +285,7 @@ button:hover{
 
 .instructions-text{
   color: whitesmoke;
-  font-size: 20px;
+  font-size: 1.5vw;
   font-family: 'Abel', sans-serif;
 }
 
@@ -296,8 +300,8 @@ button:hover{
 
 .detail-name{
   background-color: rgba(222,184,135, .5);
-  border-radius: 5px;
-  font-size: 20px;
+  border-radius: 10%;
+  font-size: 2vw;
   font-family: 'Abel', sans-serif;
   width: 80%;
   margin-left: auto;
@@ -305,7 +309,7 @@ button:hover{
 }
 
 .detail-img{
-  height: 7rem;
+  height: 8vw;
   width: 60%;
   margin-left: auto;
   margin-right: auto;
@@ -313,7 +317,7 @@ button:hover{
   background-repeat: no-repeat;
   background-size: contain;
   border: solid black 3px;
-  border-radius: 5%;
+  border-radius: 10%;
   background-color: slategray
 }
 
@@ -323,8 +327,8 @@ button:hover{
   margin-left: auto;
   margin-right: auto;
   background-color: rgba(222,184,135, .5);
-  border-radius: 5px;
-  font-size: 20px;
+  border-radius: 10%;
+  font-size: 1.8vw;
   font-family: 'Abel', sans-serif;
 }
 
@@ -350,7 +354,7 @@ button:hover{
   width: 18%;
   border: solid 5px;
   background-color: rgb(145,70,0);
-  border-radius: 5%;
+  border-radius: 10%;
   display: flex;
 }
 
@@ -368,8 +372,7 @@ button:hover{
   margin: auto;
   margin-bottom: 0;
   float: top;
-  font-size: 15px;
-  border-radius: 5px;
+  border-radius: 10%;
   font-family: 'Abel', sans-serif;
 }
 
@@ -383,7 +386,7 @@ button:hover{
 }
 
 .graveyard-labels{
-  font-size: 15px;
+  font-size: 1.1vw;
   word-spacing: 5px;
   width:8%;
   text-align: center;
@@ -398,7 +401,7 @@ button:hover{
   margin: 1%;
   border: solid 3px;
   background-color: rgb(145,70,0);
-  border-radius: 5%;
+  border-radius: 10%;
   display: flex;
 }
 
@@ -425,11 +428,15 @@ button:hover{
   background-size: contain;
 }
 
+.enemy-name{
+  color: whitesmoke;
+  font-size: 1.5vw;
+}
+
 .enemy-stats{
   height: 6%;
   width: 80%;
   margin: auto;
-  padding-top: 0.75%;
   display: flex;
 }
 
@@ -458,10 +465,11 @@ button:hover{
   z-index: 2;
   text-align: center;
   margin: auto;
+  font-size:1.25vw;
 }
 
 .enemy-deck{
-  height: 35%;
+  height: 30%;
   display: flex;
   justify-content: space-around;
 }
@@ -469,7 +477,7 @@ button:hover{
 .graveyard-length{
   margin: auto;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 3vw;
   color: white;
 }
 
@@ -519,6 +527,7 @@ button:hover{
   height: 70%;
   padding-left: 2%;
   padding-right: 2%;
+  margin-bottom: 1%;
   display: grid;
   grid-template-columns: 15% 60% 25%  ;
 }
@@ -557,7 +566,7 @@ button:hover{
   display: flex;
   transition: all .5s ease-in-out;
   border: solid black 5px;
-  border-radius: 5%;
+  border-radius: 10%;
   background-color: rgb(30,30,180)
 }
 
@@ -577,7 +586,7 @@ button:hover{
   display: flex;
   animation: blinker 1s infinite;
   border: solid black 5px;
-  border-radius: 5%;
+  border-radius: 10%;
   background-color: rgb(30,30,180)
 }
 
@@ -593,10 +602,22 @@ button:hover{
   padding: 5px;
   margin-bottom: 20px;
   overflow: scroll;
+  font-size: 1.3vw;
 }
 
 .game-text-played{
   font-weight: bold;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
 @keyframes blinker {

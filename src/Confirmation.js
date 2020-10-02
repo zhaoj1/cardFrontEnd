@@ -33,7 +33,7 @@ function Confirmation(props){
           props.modalContents == 'lose' ?
             <>
               <p>You Lost...</p>
-              <img className='lose-img' src={
+              {/* <img className='lose-img' src={
                 props.currentEnemy == 1 ?
                   lose_slime
                   :
@@ -47,7 +47,7 @@ function Confirmation(props){
                         lose_lich
                         :
                         null
-              } height='180' width='320' /><br></br>
+              } height='180' width='320' /><br></br> */}
               <p>Better luck next time!</p>
               <button className='modalBtn' onClick={props.mainMenu} >Return to Main Menu</button>
             </>

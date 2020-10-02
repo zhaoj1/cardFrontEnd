@@ -18,7 +18,8 @@ const customStyles = {
     marginRight : '-50%',
     transform : 'translate(-50%, -50%)',
     backgroundColor : 'rgba(80,80,150,0.85)',
-    border : 'black'
+    border : 'black',
+    padding : '2%'
   },
   overlay: {
     zIndex:3,
@@ -189,8 +190,6 @@ export default class App extends React.Component{
   render(){
     return(
       <div className='main-container'>
-        {console.log(this.state.cards)}
-        {console.log(this.state.enemies)}
         <Modal
           isOpen={this.state.modal}
           style={customStyles}
