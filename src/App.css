@@ -195,29 +195,18 @@ button:hover{
   margin: auto;
 }
 
-/* .selected-card{
-  height: 100%;
-  border: solid yellow 5px;
-  background-color: rgb(145,70,0);
-  border-radius: 5%;
-  width: 10%;
-  margin-right: auto;
-  text-align: center;
-  display: flex;
-  transform: scale(1.2);
-}  */
-
 .selected-card{
   grid-row: 1;
-  border: solid yellow 5px;
+  border: solid 5px;
+  box-shadow: 0 0 5px 5px yellow;
   text-align: center;
   background-color: rgb(145,70,0);
   border-radius: 5%;
-  transform: scale(1.2);
 } 
 
 .selected-card:hover{
-  border: solid green 5px;
+  border: solid 5px;
+  box-shadow: 0 0 5px 5px rgb(200, 200, 250);
 } 
 
 .selected-card-name{
@@ -275,13 +264,6 @@ button:hover{
   border-radius: 5%;
   display: flex;
 }
-
-/* .deck-editor{
-  margin: auto;
-  height: 20%;
-  display:flex;
-  margin-top: 3%;
-} */
 
 .deck-editor{
   height: 15%;
@@ -476,9 +458,6 @@ button:hover{
   z-index: 2;
   text-align: center;
   margin: auto;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
 }
 
 .enemy-deck{
@@ -537,23 +516,12 @@ button:hover{
 }
 
 .player-cards-container{
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-around; */
   height: 70%;
   padding-left: 2%;
   padding-right: 2%;
   display: grid;
   grid-template-columns: 15% 60% 25%  ;
 }
-
-/* .player-hand{
-  height: 80%;
-  width: 65%;
-  margin:auto;
-  display: flex;
-  text-align: center;
-} */
 
 .player-hand{
   grid-row: 1;
@@ -614,7 +582,8 @@ button:hover{
 }
 
 .click-graveyard:hover{
-  border: solid yellow 5px;
+  border: solid black 5px;
+  box-shadow: 0 0 5px 5px yellow;
 }
 
 .game-text{

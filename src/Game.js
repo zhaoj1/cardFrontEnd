@@ -40,7 +40,7 @@ export default class Game extends React.Component{
       currentEnemyFullDeckIndex: this.props.enemies.find(enemy => enemy.id == this.props.currentEnemy).deck.map(n => parseInt(n)),
       gameText: []
     }, () => {
-      this.setEnemyDeck()
+      this.setEnemyDeckBegin()
     })
   }
 
