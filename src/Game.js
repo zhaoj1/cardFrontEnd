@@ -28,6 +28,8 @@ const defaultState = {
   gameText: []
 }
 
+const cardCoords = []
+
 export default class Game extends React.Component{
 
   state = defaultState
@@ -321,11 +323,13 @@ export default class Game extends React.Component{
       currentEnemyGraveyard: [],
       turn: 'player',
     })
+
+    // Array.from(document.getElementsByClassName('card')).map(card => cardCoords.push(card.getBoundingClientRect()))
   }
 
   setEnemyDeck = () => {
     var enemyDeck= []
-    const element = document.getElementsByClassName("game-text")[0];
+    const element = document.getElementsByClassName("game-text")[0];    
 
     this.state.currentEnemyFullDeckIndex.forEach(i => {
       enemyDeck = [...enemyDeck, this.props.cards.find(card => card.id == i)]
