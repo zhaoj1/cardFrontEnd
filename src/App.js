@@ -54,7 +54,7 @@ export default class App extends React.Component{
     this.state = {
       cards: cards,
       enemies: enemies,
-      currentEnemy: 4,
+      currentEnemy: 1,
       page: 'main',
       playerFullDeck:[],
       modal: false,
@@ -64,31 +64,6 @@ export default class App extends React.Component{
       hasSpecialCard: false
     }
   }
-
-  // componentDidMount(){
-  //   this.fetchCards();
-  //   this.fetchEnemies();
-  // }
-
-  // fetchCards = () => {
-  //   fetch('https://fantasy-redraw.herokuapp.com/cards')
-  //   .then(resp => resp.json())
-  //   .then(response => {
-  //     this.setState({
-  //       cards: response
-  //     })
-  //   })
-  // }
-
-  // fetchEnemies = () => {
-  //   fetch('https://fantasy-redraw.herokuapp.com/enemies')
-  //   .then(resp => resp.json())
-  //   .then(response => {
-  //     this.setState({
-  //       enemies: response
-  //     })
-  //   })
-  // }
 
   editDeck = () => {
     this.setState({page:'edit'})

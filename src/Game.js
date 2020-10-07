@@ -28,8 +28,6 @@ const defaultState = {
   gameText: []
 }
 
-const cardCoords = []
-
 export default class Game extends React.Component{
 
   state = defaultState
@@ -323,8 +321,6 @@ export default class Game extends React.Component{
       currentEnemyGraveyard: [],
       turn: 'player',
     })
-
-    // Array.from(document.getElementsByClassName('card')).map(card => cardCoords.push(card.getBoundingClientRect()))
   }
 
   setEnemyDeck = () => {
