@@ -1,8 +1,8 @@
-Unnamed Card Game
+###Fantasy Redraw
 
-WIP - simple card game with play or redraw discard mechanics.
+Simple card game with play or redraw discard mechanics.
 
-Technologies:  
+##Technologies:  
 React 16.13.1  
 Javascript  
 HTML  

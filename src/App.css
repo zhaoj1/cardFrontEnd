@@ -91,6 +91,7 @@ button:hover{
   padding: 3%;
   margin: auto;
   font-family: 'Abel', sans-serif;
+  width: 25%;
 }
 
 .lose-img{
