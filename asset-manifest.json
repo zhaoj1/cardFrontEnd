@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/FantasyRedraw/static/css/main.e5fd1a4c.chunk.css",
+    "main.js": "/FantasyRedraw/static/js/main.c103ecb4.chunk.js",
+    "main.js.map": "/FantasyRedraw/static/js/main.c103ecb4.chunk.js.map",
+    "runtime-main.js": "/FantasyRedraw/static/js/runtime-main.203bf083.js",
+    "runtime-main.js.map": "/FantasyRedraw/static/js/runtime-main.203bf083.js.map",
+    "static/js/2.0a0af733.chunk.js": "/FantasyRedraw/static/js/2.0a0af733.chunk.js",
+    "static/js/2.0a0af733.chunk.js.map": "/FantasyRedraw/static/js/2.0a0af733.chunk.js.map",
+    "index.html": "/FantasyRedraw/index.html",
+    "precache-manifest.23836f3c3000b2a33c3d8094d559a585.js": "/FantasyRedraw/precache-manifest.23836f3c3000b2a33c3d8094d559a585.js",
+    "service-worker.js": "/FantasyRedraw/service-worker.js",
+    "static/css/main.e5fd1a4c.chunk.css.map": "/FantasyRedraw/static/css/main.e5fd1a4c.chunk.css.map",
+    "static/js/2.0a0af733.chunk.js.LICENSE.txt": "/FantasyRedraw/static/js/2.0a0af733.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/FantasyRedraw/static/media/title.d0467255.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.203bf083.js",
+    "static/js/2.0a0af733.chunk.js",
+    "static/css/main.e5fd1a4c.chunk.css",
+    "static/js/main.c103ecb4.chunk.js"
+  ]
+}
