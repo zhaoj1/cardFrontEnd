@@ -2,6 +2,8 @@
 
 Simple card game with play or redraw discard mechanics.
 
+[Live Link](https://zhaoj1.github.io/FantasyRedraw/)
+
 ### Technologies:  
 
 React.js
